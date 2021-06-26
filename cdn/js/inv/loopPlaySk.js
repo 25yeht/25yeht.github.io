@@ -9,7 +9,7 @@ $(document).ready(function() {
         });
     $("<button>").text("Loop Sky High").attr("id", "lp-sk-hi").appendTo("#elektronomia-sky-high-js-player-div");
 	$("#gba").on("click", function() {
-		$("<meta>").attr("http-equiv", "refresh").attr("content", "0;").appendTo("head");
+		window.location.reload();
 	});
     $("#lp-sk-hi").on("click", function() {
             console.log("Clicked!");
