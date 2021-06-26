@@ -9,7 +9,8 @@ if(document.getElementsByName("jquery")[0]) {
                 $("#pl-sk-hi").on("click", function() {
                     if(isAppended == false) {
                         $("<audio>").attr("src", "/cdn/audio/Elektronomia_-_Sky_High_NCS_Release[GetVideo.watch].mp3").attr("controls", true).attr("autoplay", true).appendTo("#ad-js-player-div");
-                    isAppended = true;
+                    	isAppended = true;
+                    	$("#pl-sk-hi").remove();
                     }
                 });
             });
@@ -22,7 +23,8 @@ if(document.getElementsByName("jquery")[0]) {
                 $("#pl-sk-hi").on("click", function() {
                     if(isAppended == false) {
                         $("<audio>").attr("src", "/cdn/audio/Elektronomia_-_Sky_High_NCS_Release[GetVideo.watch].mp3").attr("controls", true).attr("autoplay", true).appendTo("#ad-js-player-div");
-                    isAppended = true;
+                    	isAppended = true;
+						$("#pl-sk-hi").remove();
                     }
                 });
             });
