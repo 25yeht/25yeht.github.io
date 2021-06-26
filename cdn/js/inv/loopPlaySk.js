@@ -3,6 +3,7 @@ $(document).ready(function() {
     $("#lp-sk-hi").on("click", function() {
             console.log("Clicked!");
             $("<audio>").attr("src", "/cdn/audio/Elektronomia_-_Sky_High_NCS_Release[GetVideo.watch].mp3").attr("autoplay", true).appendTo("body");
+            $("<button>").text("Get buttons again").attr("id", "gba").appendTo("#elektronomia-sky-high-js-player-div");
             $("#pl-sk-hi").remove();
             $("#lp-sk-hi").remove();
         var dasInterval = window.setInterval(function() {
