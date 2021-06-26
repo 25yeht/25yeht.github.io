@@ -3,7 +3,7 @@ if(document.getElementsByName("jquery")[0]) {
     console.log("Welcome home!");
     
     $(document).ready(function() {
-		$("<button>").text("Play Sky High").attr("id", "pl-sk-hi").appendTo("#elektronomia-sky-high-js-player-div");
+		$("<button>").attr("id", "pl-sk-hi").html("Play Sky High").appendTo("#elektronomia-sky-high-js-player-div");
     	$("#pl-sk-hi").on("click", function() {
         	$("<audio>").attr("src", "/cdn/audio/Elektronomia_-_Sky_High_NCS_Release[GetVideo.watch].mp3").attr("controls", true).attr("autoplay", true).appendTo("#elektronomia-sky-high-js-player-div");
             $("#pl-sk-hi").remove();
