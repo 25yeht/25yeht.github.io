@@ -15,6 +15,7 @@ if(document.getElementsByName("jquery")[0]) {
         addLink("Home", "/");
         addLink("Afficient Video", "/fun/afficient/");
         addLink("Quiz!", "/fun/quiz/");
+        addLink("Infinite Iframe", "/fun/infinite-iframe/");
         });
 } else {
     console.log("jQuery not found!")
