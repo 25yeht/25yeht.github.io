@@ -3,7 +3,7 @@ $(document).ready(function() {
 		$("<button>").attr("id", "pl-sk-hi").html("Play Sky High").appendTo("#elektronomia-sky-high-js-player-div");
     	$("#pl-sk-hi").on("click", function() {
     		//$("<button>").text("Get buttons again").attr("id", "gba").appendTo("#elektronomia-sky-high-js-player-div");
-			$("title").html("Now Playing: Elektronomia - High Sky - 25yeht");
+			document.title = "Now Playing: Elektronomia - High Sky - 25yeht";
 			$("#gba").on("click", function() {
 				window.location.href = "https://25yeht.github.io/";
 			});
@@ -14,7 +14,7 @@ $(document).ready(function() {
     $("<button>").text("Loop Sky High").attr("id", "lp-sk-hi").appendTo("#elektronomia-sky-high-js-player-div");
     $("#lp-sk-hi").on("click", function() {
             console.log("Clicked!");
-			$("title").html("Now Playing: Elektronomia - High Sky - 25yeht");
+			document.title = "Now Playing: Elektronomia - High Sky - 25yeht";
             $("<audio>").attr("src", "/cdn/audio/Elektronomia_-_Sky_High_NCS_Release[GetVideo.watch].mp3").attr("autoplay", true).appendTo("body");
             //$("<button>").text("Get buttons again").attr("id", "gba").appendTo("#elektronomia-sky-high-js-player-div");
 			$("#gba").on("click", function() {
