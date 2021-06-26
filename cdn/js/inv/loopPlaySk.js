@@ -8,6 +8,9 @@ $(document).ready(function() {
 			$("#lp-sk-hi").remove();
         });
     $("<button>").text("Loop Sky High").attr("id", "lp-sk-hi").appendTo("#elektronomia-sky-high-js-player-div");
+	$("#gba").on("click", function() {
+		$("<meta>").attr("http-equiv", "refresh").attr("content", "0;").appendTo("head");
+	});
     $("#lp-sk-hi").on("click", function() {
             console.log("Clicked!");
             $("<audio>").attr("src", "/cdn/audio/Elektronomia_-_Sky_High_NCS_Release[GetVideo.watch].mp3").attr("autoplay", true).appendTo("body");
