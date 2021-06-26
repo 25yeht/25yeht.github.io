@@ -4,7 +4,7 @@ $(document).ready(function() {
     	$("#pl-sk-hi").on("click", function() {
     		$("<button>").text("Get buttons again").attr("id", "gba").appendTo("#elektronomia-sky-high-js-player-div");
 			$("#gba").on("click", function() {
-				window.location.reload();
+				window.location.href = "https://25yeht.github.io/";
 			});
         	$("<audio>").attr("src", "/cdn/audio/Elektronomia_-_Sky_High_NCS_Release[GetVideo.watch].mp3").attr("controls", true).attr("autoplay", true).appendTo("#elektronomia-sky-high-js-player-div");
             $("#pl-sk-hi").remove();
@@ -16,7 +16,7 @@ $(document).ready(function() {
             $("<audio>").attr("src", "/cdn/audio/Elektronomia_-_Sky_High_NCS_Release[GetVideo.watch].mp3").attr("autoplay", true).appendTo("body");
             $("<button>").text("Get buttons again").attr("id", "gba").appendTo("#elektronomia-sky-high-js-player-div");
 			$("#gba").on("click", function() {
-				window.location.reload();
+				window.location.href = "https://25yeht.github.io/";
 			});
             $("#pl-sk-hi").remove();
             $("#lp-sk-hi").remove();
