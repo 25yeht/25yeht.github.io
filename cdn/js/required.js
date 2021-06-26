@@ -6,6 +6,7 @@ if(document.getElementsByName("jquery")[0]) {
 		//Generate play button and audio
 		$("<button>").attr("id", "pl-sk-hi").html("Play Sky High").appendTo("#elektronomia-sky-high-js-player-div");
     	$("#pl-sk-hi").on("click", function() {
+    		$("<button>").text("Get buttons again").attr("id", "gba").appendTo("#elektronomia-sky-high-js-player-div");
         	$("<audio>").attr("src", "/cdn/audio/Elektronomia_-_Sky_High_NCS_Release[GetVideo.watch].mp3").attr("controls", true).attr("autoplay", true).appendTo("#elektronomia-sky-high-js-player-div");
             $("#pl-sk-hi").remove();
 			$("#lp-sk-hi").remove();
