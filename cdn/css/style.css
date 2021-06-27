@@ -87,3 +87,7 @@ button {
 .news {
     font-family: Georgia, 'Times New Roman', Times, serif;
 }
+.btn-a {
+    color: white;
+    text-decoration: unset;
+}
