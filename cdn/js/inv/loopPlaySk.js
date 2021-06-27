@@ -15,7 +15,7 @@ $(document).ready(function() {
     $("#lp-sk-hi").on("click", function() {
             console.log("Clicked!");
 			document.title = "Playing: Sky High - 25yeht";
-            $("<audio>").attr("src", "/cdn/audio/Elektronomia_-_Sky_High_NCS_Release[GetVideo.watch].mp3").attr("autoplay", true).attr("disabled", true).attr("controls", true).appendTo("body");
+            $("<audio>").attr("src", "/cdn/audio/Elektronomia_-_Sky_High_NCS_Release[GetVideo.watch].mp3").attr("autoplay", true)/*.attr("disabled", true)*/.attr("controls", true).appendTo("body");
             //$("<button>").text("Get buttons again").attr("id", "gba").appendTo("#elektronomia-sky-high-js-player-div");
 			$("#gba").on("click", function() {
 				window.location.href = "https://25yeht.github.io/";
