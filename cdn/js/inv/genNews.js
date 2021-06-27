@@ -19,7 +19,7 @@ if(document.getElementsByName("jquery")[0]) {
         //Start Generating News
         addAnch("Today's News is propaganda: Elderly women scratches her book");
         addImg("https://www.mozilla.org/media/img/home/2021/gary.f79b62eae19a.png", "Image of the women scratching her book", "30%", null);
-        addP("Image of the man");
+        addP("Granny scratches her book<br><em>Source: <a href='https://www.mozilla.org/media/img/home/2021/gary.f79b62eae19a.png' target='blank'>Mozilla Media</a></em>");
         $("<br>").appendTo("body");
         addP("<br><br><em>Ahh, I just love scratching books</em> - Granny");
         $("<br>").appendTo("body");
