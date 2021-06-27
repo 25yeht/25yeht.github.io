@@ -4,9 +4,9 @@ $(document).ready(function() {
     	$("#pl-sk-hi").on("click", function() {
         	$("<audio>").attr("src", "/cdn/audio/Elektronomia_-_Sky_High_NCS_Release[GetVideo.watch].mp3").attr("autoplay", true).attr("controls", true).appendTo("#elektronomia-sky-high-js-player-div");
 			$("<br>").appendTo("#elektronomia-sky-high-js-player-div");
-    		$("<a>").attr("href", window.location.pathname).attr("id", "gba").appendTo("#elektronomia-sky-high-js-player-div");
+    		$("<button>").attr("id", "gba").appendTo("#elektronomia-sky-high-js-player-div");
 			document.title = "Playing: Sky High - 25yeht";
-			$("#gba").append($("<button>").text("Get buttons again").addClass("btn-a"));
+			$("#gba").append($("<a>").attr("href", window.location.pathname).text("Get buttons again").addClass("btn-a"));
             $("#pl-sk-hi").remove();
 			$("#lp-sk-hi").remove();
         });
@@ -15,8 +15,8 @@ $(document).ready(function() {
             console.log("Clicked!");
 			document.title = "Playing: Sky High - 25yeht";
             $("<audio>").attr("src", "/cdn/audio/Elektronomia_-_Sky_High_NCS_Release[GetVideo.watch].mp3").attr("autoplay", true).appendTo("body");
-            $("<a>").attr("href", window.location.pathname).attr("id", "gba").appendTo("#elektronomia-sky-high-js-player-div");
-	    	$("#gba").append($("<button>").text("Get buttons again").addClass("btn-a"));
+            $("<button>").attr("id", "gba").appendTo("#elektronomia-sky-high-js-player-div");
+	    	$("#gba").append($("<a>").attr("href", window.location.pathname).text("Get buttons again").addClass("btn-a"));
             $("#pl-sk-hi").remove();
             $("#lp-sk-hi").remove();
         	var dasInterval = window.setInterval(function() {
