@@ -5,7 +5,7 @@ $(document).ready(function() {
     		$("<button>").attr("id", "gba").appendTo("#elektronomia-sky-high-js-player-div");
 		$("#gba").append($("<a>").text("Get buttons again").attr("href", window.location.pathname).addClass("btn-a"));
 			document.title = "Playing: Sky High - 25yeht";
-        	$("<audio>").attr("src", "/cdn/audio/Elektronomia_-_Sky_High_NCS_Release[GetVideo.watch].mp3").attr("autoplay", true).appendTo("#elektronomia-sky-high-js-player-div");
+        	$("<audio>").attr("src", "/cdn/audio/Elektronomia_-_Sky_High_NCS_Release[GetVideo.watch].mp3").attr("autoplay", true).attr("controls", true).appendTo("#elektronomia-sky-high-js-player-div");
             $("#pl-sk-hi").remove();
 			$("#lp-sk-hi").remove();
         });
