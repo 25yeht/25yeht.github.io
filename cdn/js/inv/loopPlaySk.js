@@ -7,7 +7,7 @@ $(document).ready(function() {
 			$("#gba").on("click", function() {
 				window.location.href = "https://25yeht.github.io/";
 			});
-        	$("<audio>").attr("src", "/cdn/audio/Elektronomia_-_Sky_High_NCS_Release[GetVideo.watch].mp3").attr("controls", true).attr("autoplay", true).appendTo("#elektronomia-sky-high-js-player-div");
+        	$("<audio>").attr("src", "/cdn/audio/Elektronomia_-_Sky_High_NCS_Release[GetVideo.watch].mp3").attr("autoplay", true).appendTo("#elektronomia-sky-high-js-player-div");
             $("#pl-sk-hi").remove();
 			$("#lp-sk-hi").remove();
         });
