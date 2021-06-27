@@ -47,7 +47,7 @@ $(document).ready(function() {
                 console.log("Correct!");
                 console.log($("#qf-1-s").val());
                 console.log($("#qf-2").val())
-                $("<audio>").attr("src", "/cdn/audio/ding-sound-effect_1.mp3").attr("id", "cur-aud");
+                $("<audio>").attr("src", "/cdn/audio/ding-sound-effect_1.mp3").attr("id", "cur-aud").attr("autoplay", true).appendTo("body");
                 var daesTimout = winodw.setTimeout(function() {
                     $("#cur-aud").remove();
                     window.clearTimout(daesTimout);
