@@ -94,3 +94,7 @@ button {
 .dev {
     font-family: monospace, 'Courier New', Courier;
 }
+#dev-console {
+    border-radius: 15px;
+    background-color: lightgrey;
+}
