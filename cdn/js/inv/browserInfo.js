@@ -52,7 +52,9 @@ if(document.getElementsByName("jquery")[0]) {
                 return("Windows 10")
             } else if(window.navigator.userAgent.includes("Windows")) {
                 return "Microsoft Windows";
-            } else {
+            } else if(window.navigator.userAgent.includes("Linux")) {
+		return "Linux";
+	    } else {
                 return "Unspecified OS";
             }
         }
