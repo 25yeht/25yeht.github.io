@@ -91,3 +91,6 @@ button {
     color: white;
     text-decoration: unset;
 }
+.dev {
+    font-family: monospace, 'Courier New', Courier;
+}
