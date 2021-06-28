@@ -3,8 +3,13 @@ if(document.getElementsByName("jquery")[0]) {
     console.log("Welcome home!");
     
     $(document).ready(function() {
-		//Do something
-    });
+        $("div").addClass("dev").attr("id", "dev-console").html(`
+            <h2>Welcome to the <b>Developer Console!</b></h2>
+            <br>
+            <h2>Your <b>User Agent</b> is:</h2>
+            <h3 id="dev-usr-agt"></h3>
+        `);
+        $("#dev-usr-agt").text(window.navigator.userAgent);
     });
 } else {
     console.log("jQuery not found! Maybe try adding the script as the first?");
