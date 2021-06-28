@@ -47,6 +47,10 @@ if(document.getElementsByName("jquery")[0]) {
                 return "Chrome OS";
             } else if(window.navigator.userAgent.includes("iPad")) {
                 return "iPad OS";
+            } else if(window.navigator.userAgent.includes("Windows NT 10.0")) {
+                return("Windows 10")
+            } else if(window.navigator.userAgent.includes("Windows")) {
+                return "Microsoft Windows";
             } else {
                 return "Unspecified OS";
             }
