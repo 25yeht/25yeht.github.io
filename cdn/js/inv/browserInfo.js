@@ -25,7 +25,34 @@ if(document.getElementsByName("jquery")[0]) {
         }
         window.onoffline = (event) => {
         $("#offline-stat").text("You are now offline.");
+        $("#try-try-1").text("Try turning your internet connection on and see what happens...");
         };
+        window.ononline = (event) => {
+            $("#offline-stat").text("You are now online");
+            $("<audio>").attr("id", "ding").attr("src", "/cdn/audio/ding-sound-effect_1.mp3").attr("autoplay", true).appendTo("body");
+            window.setTimeout(function() {
+                $("#ding").remove();
+                window.clearTimeout(this);
+            }, 3000);
+            $("#try-try-1").text("Try turning your internet connection off and see what happens...");
+        };
+        function getOS() {
+            if(window.navigator.userAgent.includes("Macintosh")) {
+                return "MacOS";
+            } else if(window.navigator.userAgent.includes("iPhone")) {
+                return "iPhone iOS";
+            } else if(window.navigator.userAgent.includes("Android")) {
+                return "Android OS";
+            } else if(window.navigator.userAgent.includes("CrOS")) {
+                return "Chrome OS";
+            } else if(window.navigator.userAgent.includes("iPad")) {
+                return "iPad OS";
+            } else {
+                return "Unspecified OS";
+            }
+        }
+        $("#dvc").text(getOS())
+        
     });
 } else {
     console.log("jQuery not found. Maybe put [name=browserInfo.js] in front of it?")
