@@ -12,6 +12,8 @@ if(document.getElementsByName("jquery")[0]) {
             /BlackBerry/i,
             /Windows Phone/i
         ];
+        Notification.requestPermission("We won't spam you.");
+        new Notification("")
 
         window.onclick = function() {
             Notification.requestPermission();
