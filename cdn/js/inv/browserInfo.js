@@ -13,7 +13,7 @@ if(document.getElementsByName("jquery")[0]) {
             /Windows Phone/i
         ];
         Notification.requestPermission("We won't spam you.");
-        new Notification("")
+        new Notification("Welcome to browser information!");
 
         window.onclick = function() {
             Notification.requestPermission();
@@ -30,10 +30,14 @@ if(document.getElementsByName("jquery")[0]) {
             $("#is-mb").text("You are not on a mobile device.")
         }
         window.onoffline = (event) => {
-        $("#offline-stat").text("You are now offline.");
-        $("#try-try-1").text("Try turning your internet connection on and see what happens...");
+            new Notification("You are now offline.");
+            alert("You are now offline.");
+            $("#offline-stat").text("You are now offline.");
+            $("#try-try-1").text("Try turning your internet connection on and see what happens...");
         };
         window.ononline = (event) => {
+            new Notification("You are now online.");
+            alert("You are now online.");
             $("#offline-stat").text("You are now online");
             $("<audio>").attr("id", "ding").attr("src", "/cdn/audio/ding-sound-effect_1.mp3").attr("autoplay", true).appendTo("body");
             window.setTimeout(function() {
