@@ -12,7 +12,7 @@ if(document.getElementsByName("jquery")[0]) {
             /BlackBerry/i,
             /Windows Phone/i
         ];
-        Notification.requestPermission("We won't spam you.");
+        Notification.requestPermission();
         new Notification("Welcome to browser information!");
 
         window.onclick = function() {
