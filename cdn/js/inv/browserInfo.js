@@ -8,12 +8,15 @@ if(document.getElementsByName("jquery")[0]) {
             /Android/i,
             /webOS/i,
             /iPhone/i,
-			/iPad/i,
             /iPod/i,
             /BlackBerry/i,
             /Windows Phone/i
         ];
 
+        window.onclick = function() {
+            Notification.requestPermission();
+            new Notification("You have clicked.")
+        };
         return toMatch.some((toMatchItem) => {
             return navigator.userAgent.match(toMatchItem);
         });
@@ -52,9 +55,7 @@ if(document.getElementsByName("jquery")[0]) {
                 return("Windows 10")
             } else if(window.navigator.userAgent.includes("Windows")) {
                 return "Microsoft Windows";
-            } else if(window.navigator.userAgent.includes("Linux")) {
-		return "Linux";
-	    } else {
+            } else {
                 return "Unspecified OS";
             }
         }
