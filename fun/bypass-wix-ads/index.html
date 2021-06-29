@@ -5,7 +5,8 @@
 		<title>Removing Ads...</title>
 		<script>
 			window.location.href = "https://old25yeht.wixsite.com/get-some-media";
-			alert("Type 'javascript:document.getElementById('WIX_ADS').remove();' into the address bar.");
+			Notification.requestPermission();
+			new Notification("Type 'javascript:document.getElementById('WIX_ADS').remove();' into the address bar.");
 		</script>
 	</head>
 </html>
