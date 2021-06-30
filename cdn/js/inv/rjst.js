@@ -11,7 +11,8 @@ if(document.getElementsByName("jquery")[0]) {
                 try {
                     eval($("#notepad").val());
                 } catch(error) {
-                    alert("Syntax Error!")
+                    alert("Syntax Error!" + `
+                    ` + error)
                 }
             }
         });
