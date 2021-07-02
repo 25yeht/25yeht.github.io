@@ -28,7 +28,7 @@ $(document).ready(function() {
         	var dasInterval = window.setInterval(function() {
             	$("#cur-aud").remove();
             	$("<audio>").attr("src", "/cdn/audio/Elektronomia_-_Sky_High_NCS_Release[GetVideo.watch].mp3").attr("autoplay", true).attr("id", "cur-aud").appendTo("body");
-        }, (3000*60) + 50000);
+        }, (3000*60) + 15000);
     });
     window.onbeforeunload = function() {
         document.title = "25yeht";
