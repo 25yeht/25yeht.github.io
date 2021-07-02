@@ -70,7 +70,7 @@ button {
 	text-align: center;
 }
 button:active {
-  background-color: blueviolet;
+  background-color: rgb(56, 56, 56);
 }
 .err-msg {
   background-color: lightcoral;
