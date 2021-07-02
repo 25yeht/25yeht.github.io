@@ -15,7 +15,7 @@ if(document.getElementsByName("jquery")[0]) {
         addLink("Home", "/");
         addLink("Afficient Video", "/fun/afficient/");
         addLink("Quiz!", "/fun/quiz/");
-        addLink("Infinite Iframe", "/fun/infinite-iframe/");
+        addLink("A View Of My Website Design", "/fun/webpage-design/");
         addLink("News", "/news/");
         addLink("Browser Information", "/fun/browser-info/");
         addLink("Run JS on the web", "/fun/run-js-on-web");
