@@ -55,7 +55,7 @@ span {
 p {
 	color: white;
 }
-a {
+a.link {
 	font-family: 'proxima_nova_rgregular', sans-serif;
 }
 button {
