@@ -139,6 +139,7 @@ button {
     height: 500px;
     border-radius: 15px;
 	background-color: rgb(20, 20, 20);
+	color: white;
 }
 .news {
     font-family: Georgia, 'Times New Roman', Times, serif;
