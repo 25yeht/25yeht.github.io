@@ -220,3 +220,20 @@ a {
 	background-color: grey;
 	border-radius: 15px;
 }
+.black-container-down {
+	position: absolute;
+	border: 0px;
+	border-radius: 9px;
+	background-color: rgb(20, 20, 20);
+	box-shadow: 2px 2px 5px black;
+	padding: 9px;
+	padding-left: 10px;
+	text-align: center;
+	width: 12%;
+	top: 25%;
+	left: 56%;
+	padding-bottom: 25px;
+}
+.contained-p {
+	color: grey;
+}
