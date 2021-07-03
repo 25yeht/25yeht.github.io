@@ -160,8 +160,9 @@ span {
 }
 input {
 	border-radius: 5px;
-	border-color: lightblue;
+	border-color: rgb(27, 27, 27);
 	box-shadow: 2px 2px 5px black;
+	border-width: 2px;
 }
 select {
 	border-radius: 5px;
@@ -172,4 +173,16 @@ select {
 }
 label {
 	color: white;
+}
+.white-div {
+	border-radius: 9px;
+	background-color: white;
+	padding-left: 200px;
+	padding-top: 75px;
+	height: 500px;
+	box-shadow: 2px 2px 5px black;
+}
+a {
+	text-decoration: none;
+	color: aqua;
 }
