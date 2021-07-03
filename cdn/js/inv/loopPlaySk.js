@@ -4,12 +4,11 @@ $(document).ready(function() {
     	$("#pl-sk-hi").on("click", function() {
         	$("<audio>").attr("src", "/cdn/audio/Elektronomia_Energy_NCS_Release.mp3").attr("autoplay", true).attr("controls", true).appendTo("#elektronomia-sky-high-js-player-div");
 			$("<br>").appendTo("#elektronomia-sky-high-js-player-div");
-    		$("<button>").attr("id", "gba").appendTo("#elektronomia-sky-high-js-player-div");
-			document.title = "Playing: Energy - 25yeht";
-			$("#gba").append($("<a>").attr("href", window.location.pathname).text("Get buttons again").addClass("btn-a"));
+            $("<button>").attr("id", "gba").text("Get Buttons Again").appendTo("#elektronomia-sky-high-js-player-div");
             $("#pl-sk-hi").remove();
-			$("#lp-sk-hi").remove();
+            $("#lp-sk-hi").remove();
 			$("#gba").on("click", function() {
+				window.location.pathname = window.location.pathname;
 				$("#gba").text("Reloading...");
 			});
         });
@@ -18,11 +17,11 @@ $(document).ready(function() {
             console.log("Clicked!");
 			document.title = "Playing: Energy - 25yeht";
             $("<audio>").attr("src", "/cdn/audio/Elektronomia_Energy_NCS_Release.mp3").attr("autoplay", true).appendTo("body");
-            $("<button>").attr("id", "gba").appendTo("#elektronomia-sky-high-js-player-div");
-	    	$("#gba").append($("<a>").attr("href", window.location.pathname).text("Get buttons again").addClass("btn-a"));
+            $("<button>").attr("id", "gba").text("Get Buttons Again").appendTo("#elektronomia-sky-high-js-player-div");
             $("#pl-sk-hi").remove();
             $("#lp-sk-hi").remove();
 			$("#gba").on("click", function() {
+				window.location.pathname = window.location.pathname;
 				$("#gba").text("Reloading...");
 			});
         	var dasInterval = window.setInterval(function() {
