@@ -19,6 +19,7 @@ if(document.getElementsByName("jquery")[0]) {
         addLink("News", "/news/");
         addLink("Browser Information", "/fun/browser-info/");
         addLink("Run JS on the web", "/fun/run-js-on-web");
+        addLink("Info", "/info/");
         addLink("This site is under development.", null, false);
         });
 } else {
