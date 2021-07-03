@@ -52,6 +52,9 @@ h3 {
 span {
 	color: white;
 }
+#r {
+	background-color: white;
+}
 p {
 	color: white;
 }
@@ -173,6 +176,7 @@ select {
 }
 label {
 	color: white;
+	font-family: 'proxima_nova_rgregular';
 }
 .white-div {
 	border-radius: 9px;
