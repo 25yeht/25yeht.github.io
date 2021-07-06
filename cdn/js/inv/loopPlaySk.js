@@ -5,7 +5,7 @@ $(document).ready(function() {
 			$("<p>").addClass("container-p").html("Music: Tobu & Itro - Sunburst<br><a href='http://youtube.com/tobuofficial' target='_blank'>http://youtube.com/tobuofficial</a><br><a href='https://www.youtube.com/user/officialitro' target='_blank'>https://www.youtube.com/user/officialitro</a><br>Released by NCS <a href='https://www.youtube.com/NoCopyrightSounds' target='_blank'>https://www.youtube.com/NoCopyrightSounds</a>").appendTo("#elektronomia-sky-high-js-player-div");
         	$("<audio>").attr("src", "/cdn/audio/Tobu & Itro - Sunburst.mp3").attr("autoplay", true).attr("controls", true).appendTo("#elektronomia-sky-high-js-player-div");
 			$("<p>").addClass("container-p").html("Loading...").attr("id", "ldg").appendTo("#elektronomia-sky-high-js-player-div");
-			$("#ldg").on("loadeddata", function() {
+			$("#ldg")[0].addEventListener("loadeddata", function() {
 				if($("#ldg")[0].readyState >= 3) {
 					$("#ldg").remove();
 				}
@@ -26,7 +26,7 @@ $(document).ready(function() {
 			$("<p>").addClass("container-p").html("Music: Tobu & Itro - Sunburst<br><a href='http://youtube.com/tobuofficial' target='_blank'>http://youtube.com/tobuofficial</a><br><a href='https://www.youtube.com/user/officialitro' target='_blank'>https://www.youtube.com/user/officialitro</a><br>Released by NCS <a href='https://www.youtube.com/NoCopyrightSounds'target='_blank'>https://www.youtube.com/NoCopyrightSounds</a>").appendTo("#elektronomia-sky-high-js-player-div");
             $("<audio>").attr("src", "/cdn/audio/Tobu & Itro - Sunburst.mp3").attr("autoplay", true).appendTo("body");
 			$("<p>").addClass("container-p").html("Loading...").attr("id", "ldg").appendTo("#elektronomia-sky-high-js-player-div");
-			$("#ldg").on("loadeddata", function() {
+			$("#ldg")[0].addEventListener("loadeddata", function() {
 				if($("#ldg")[0].readyState >= 3) {
 					$("#ldg").remove();
 				}
