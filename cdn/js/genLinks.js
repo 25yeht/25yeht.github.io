@@ -20,6 +20,7 @@ if(document.getElementsByName("jquery")[0]) {
         addLink("Browser Information", "/fun/browser-info/");
         addLink("Run JS on the web", "/fun/run-js-on-web");
         addLink("Info", "/info/");
+        addLink("25yeht Beta", "https://25yehtgithubio.a25yeht.repl.co/");
         addLink("This site is under development.", null, false);
         });
 } else {
