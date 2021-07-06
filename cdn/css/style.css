@@ -1,5 +1,10 @@
 /*
   Made by 25yeht.
+  
+  Usage Rights:
+  *	You must give credit to 25yeht on github and @a25yeht on replit.
+  *	You may not plagiarize/claim this stylesheet as your own.
+  *	You must still give credit even if you have modified a copy of this stylesheet so credit is given to the owner of the original copy.
 */
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
 @font-face {
@@ -61,6 +66,13 @@ span {
 }
 p {
 	color: white;
+}
+.container-p {
+	background-color: rgb(20, 20, 20);
+	box-shadow: 2px 2px 5px black;
+	border-radius: 9px;
+	padding: 15px;
+	width: 20%
 }
 a.link {
 	font-family: 'proxima_nova_rgregular', sans-serif;
@@ -150,6 +162,9 @@ button {
 }
 .news {
     font-family: Georgia, 'Times New Roman', Times, serif;
+	color: black;
+	align-content: center;
+	text-align: center;
 }
 span {
 	font-family: 'proxima_nova_rgregular', sans-serif;
@@ -236,4 +251,9 @@ a {
 }
 .contained-p {
 	color: grey;
+}
+.white-container {
+	background-color: white;
+	border-radius: 9px;
+	box-shadow: 2px 2px 5px black;
 }
