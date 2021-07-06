@@ -17,7 +17,13 @@ if(document.getElementsByName("jquery")[0]) {
             $("<h1>").addClass("news").addClass("centered").html(html).appendTo("#news-div");
         }
         //Start Generating News
-        addAnch("No news today. SOWWY!");
+        addAnch("The Times Hires Novelists to Write Their Paper.");
+		addP("The Times for some reason hires novelists to write Chinese propaganda.");
+		addP("<a style='color: purple; text-decoration: underline;' href='https://www.thetimes.co.uk/article/china-state-tv-channel-cgtn-enlists-uk-student-influencers-dw9v5sbnc' target='_blank'>See The Propaganda</a>");
+		addH("What the propaganda says:");
+		addP("The propaganda says that china is launching an evil program and paying people to do it.");
+		addH("The truth:");
+		addP("CGTN is just recruiting talented people to report the news.")
         for(var i = 0; i < 5; i++) {
             $("<br>").appendTo("body");
         }
