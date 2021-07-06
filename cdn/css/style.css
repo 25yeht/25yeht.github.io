@@ -130,6 +130,12 @@ header {
     padding: 10px;
 	box-shadow: 2px 2px 2px black;
 }
+#links2 {
+    background-color: rgb(20, 20, 20);
+    border-radius: 9px;
+    padding: 10px;
+	box-shadow: 2px 2px 2px black;
+}
 .link {
     font-weight: 15px;
     font-size: 20px;
