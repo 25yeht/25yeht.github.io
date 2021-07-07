@@ -7,8 +7,8 @@ if(document.getElementsByName("jquery")[0]) {
         function addP(html) {
             $("<p>").addClass("news").html(html).appendTo("#news-div");
         }
-        function addImg(src, alt, width, height) {
-            $("<img>").attr("src", src).attr("alt", alt).addClass("alcentered").css("width", width).css("height", height).appendTo("#news-div");
+        function addImg(src, alt, width, height, title) {
+            $("<img>").attr("src", src).attr("alt", alt).addClass("alcentered").css("width", width).css("height", height).attr("title", title).appendTo("#news-div");
         }
         function addH(html) {
             $("<h2>").html(html).addClass("news").addClass("alcentered").appendTo("#news-div");
@@ -23,7 +23,9 @@ if(document.getElementsByName("jquery")[0]) {
 		addH("What the propaganda says:");
 		addP("The propaganda says that china is launching an evil program and paying people to do it.");
 		addH("The truth:");
-		addP("CGTN is just recruiting talented people to report the news.")
+		addP("CGTN is just recruiting talented people to report the news.");
+		addP("<br>Here are some catches in the video:");
+		addImg("/cdn/img/Propaganda_Video_Catches.jpg", "Some catches of poor editing in the video", "45%", null, "Some catches of poor editing in the video");
         for(var i = 0; i < 5; i++) {
             $("<br>").appendTo("body");
         }
