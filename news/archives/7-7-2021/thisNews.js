@@ -29,7 +29,7 @@ if(document.getElementsByName("jquery")[0]) {
         for(var i = 0; i < 5; i++) {
             $("<br>").appendTo("body");
         }
-        //End Generating News
+        //End Generating New See
     });
 } else {
     console.log("jQuery not found. Maybe put [name=genNews.js] in front of it?")
