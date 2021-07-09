@@ -192,12 +192,14 @@ input {
 	border-color: rgb(27, 27, 27);
 	box-shadow: 2px 2px 5px black;
 	border-width: 2px;
+	background-color: rgb(20, 20, 20);
+	color: white;
 }
 select {
 	border-radius: 5px;
 	border-color: grey;
-	background-color: white;
-	color: black;
+	background-color: rgb(20, 20, 20);
+	color: white;
 	box-shadow: 2px 2px 5px black;
 }
 label {
@@ -263,4 +265,10 @@ a {
 	background-color: white;
 	border-radius: 9px;
 	box-shadow: 2px 2px 5px black;
+}
+label {
+	font-size: 25px;
+}
+button:disabled {
+	background-color: rgb(56, 56, 56);
 }
