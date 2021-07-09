@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Run JS from a link - 25yeht</title>
+    <link rel="stylesheet" href="/cdn/css/style.css">
+    <link rel="shortcut icon" href="https://iconarchive.com/download/i96376/iconsmind/outline/Internet.ico">
+    <script name="jquery" src="/cdn/lib/js/jquery-3.6.0.min.js"></script>
+    <script name="required" src="/cdn/js/required.js"></script>
+    <script name="gen-links" src="/cdn/js/genLinks.js"></script>
+	<script name="main" src="/cdn/js/inv/rjsf.js"></script>
+  </head>
+  <body>
+    <noscript class="err-msg">Sorry, please enable JavaScript to have this site function properly. Thank You! :)</noscript>
+    <h1 class="centered">Run JS from a link</h1>
+    <div id="links"></div>
+	<div id="elektronomia-sky-high-js-player-div"></div>
+    <h2 class="centered">Choose an option</h2>
+	<form class="centered" id="what-type">
+		<input id="sel" class="centered" type="radio" name="type" value="sel">
+		<label for="sel">Select a script</label><br>
+		<select id="opt-sel">
+			<option value="/cdn/js/inv/genNews.js">Generate News</option>
+			<option value="/cdn/js/genLinks.js">Generate Links</option>
+			<option value="/cdn/js/inv/loopPlaySk.js">Generate Music Play Buttons</option>
+		</select><br>
+		<input id="enter" class="centered" type="radio" name="type" value="enter">
+		<label for="enter">Enter a pathname</label><br><br>
+		<input type="text" id="pathname" value="/"><br><br>
+		<button type="submit" disabled="disabled">Run</button>
+	</form>
+  </body>
+</html>
