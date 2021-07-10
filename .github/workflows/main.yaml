@@ -1,3 +1,5 @@
+pkg install node
+emerge nodejs
 name: Node.js CI
 
 on:
