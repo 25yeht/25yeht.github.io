@@ -57,6 +57,8 @@ h3 {
 }
 span {
 	color: white;
+	display: inline;
+	overflow-wrap: break-word;
 }
 #r {
 	background-color: white;
@@ -177,6 +179,7 @@ button {
 }
 span {
 	font-family: 'proxima_nova_rgregular', sans-serif;
+	
 }
 .btn-a {
     color: white;
