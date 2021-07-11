@@ -16,7 +16,9 @@ if(document.getElementsByName("jquery")[0]) {
 		}
         //Add the links here addLink(Text Displayed, Real URL);
         addExtLink("README", "/README.md");
-		addLink("Run JS from a link", "/fun/run-js-from-link/")
+		addLink("Run JS from a link", "/fun/run-js-from-link/");
+		addLink("25Browser", "/fun/25browser/");
+		addLink("Display an Image", "/fun/display-img/");
         });
 } else {
     console.log("jQuery not found!")
