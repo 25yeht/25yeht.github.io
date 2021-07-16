@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en-US">
+	<head>
+		<meta charset="utf-8">
+		<title>Random Insult Generator</title>
+		<link rel="stylesheet" href="https://25yeht.github.io/cdn/css/style.css">
+	</head>
+	<body>
+	<noscript>ho</noscript>
+		<button>Generate Another Insult</button>
+		<br>
+		<br>
+		<p>Be sure to visit my <a href="https://25yeht.github.io/">homepage</a>!</p>
+		<br><br>
+		<div class="white-div"></div>
+		<script onerror="alert('hey')">
+			document.getElementsByTagName("div")[0].style.fontFamily = "proximanova_rgregular, arial, sans-serif";
+			var b = ["hair", "head", "nose", "mouth", "face", "neck", "chest", "belly"];
+			var c = ["eyes", "legs", "feet", "arms", "hands", "fingers", "ears"];
+			var d = ["is", "are", "more"][Math.floor(Math.random() * 3)];
+			var e = ["stupid", "smelly", "rotten", "stinky", "disgusting", "really smelly"];
+			var f = ["sock", "skunk", "racoon", "snake", "mouse", "underwear", "cow", "horse", "shoe", "gut", "bomb"];
+			var g;
+			var i = ["cow", "skunk", "racoon", "mouse", "horse", "monkey"];
+			var j = ["arms", "nose", "head", "guts", "poop", "tail", "ears", "eyes"];
+			var k = ["stupid", "smelly", "rotten", "stinky", "disgusting"];
+			function h() {
+				if(d == "is") {
+					g = `Your ${b[Math.floor(Math.random() * b.length)]} is like a ${e[Math.floor(Math.random() * e.length) - 1]} ${f[Math.floor(Math.random() * f.length)]}!`;
+				} else {
+					g = `Your ${c[Math.floor(Math.random() * c.length)]} are like a ${e[Math.floor(Math.random() * e.length) - 1]} ${f[Math.floor(Math.random() * f.length)]}!`;
+				}
+				if(g.includes("undefined")) {
+					h();
+				} else {
+					document.getElementsByTagName("div")[0].innerHTML = g;
+				}
+			}
+			h();
+		document.getElementsByTagName("button")[0].addEventListener("click", function() {
+			try {
+				document.getElementsByTagName("div")[0].style.fontFamily = "proximanova_rgregular, arial, sans-serif";
+				var b = ["hair", "head", "nose", "mouth", "face", "neck", "chest", "belly"];
+				var c = ["eyes", "legs", "feet", "arms", "hands", "fingers"];
+				var d = ["is", "are", "more"][Math.floor(Math.random() * 3)];
+				var e = ["stupid", "smelly", "rotten", "stinky", "disgusting", "really smelly"];
+				var f = ["sock", "skunk", "racoon", "snake", "mouse", "underwear", "cow", "horse", "shoe", "gut", "bomb"];
+				var g;
+				var i = ["cow", "skunk", "racoon", "mouse", "horse", "monkey"];
+				var j = ["arms", "nose", "head", "guts", "poop", "tail", "ears", "eyes"];
+				var k = ["stupid", "smelly", "rotten", "stinky", "disgusting"];
+				function h() {
+					if(d == "is") {
+						g = `Your ${b[Math.floor(Math.random() * b.length)]} is like a ${e[Math.floor(Math.random() * e.length)]} ${f[Math.floor(Math.random() * f.length)]}!`;
+					} else if(d == "are") {
+						g = `Your ${c[Math.floor(Math.random() * c.length)]} are like a ${e[Math.floor(Math.random() * e.length)]} ${f[Math.floor(Math.random() * f.length)]}!`;
+					} else if(d == "more") {
+						g = `Your ${b[Math.floor(Math.random() * b.length)]} is more ${k[Math.floor(Math.random() * k.length)]} than a ${i[Math.floor(Math.random() * i.length)]}'s ${j[Math.floor(Math.random() * j.length)]}!`;
+					}
+					if(g.includes("undefined")) {
+						h();
+					} else {
+						document.getElementsByTagName("div")[0].innerHTML = g;
+					}
+				}
+				h();
+				 } catch(error) {
+					alert(error)
+				}
+			});
+			</script>
+	</body>
+</html>
