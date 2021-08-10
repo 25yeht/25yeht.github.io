@@ -40,6 +40,9 @@ if(document.getElementsByName("jquery")[0]) {
 				}
 			}
 		});
+		$("#url").click(() => {
+			$("#url").select();
+		});
     });
 } else {
     console.log("jQuery not found. Maybe put [name=loopSong.js] in front of it?");
