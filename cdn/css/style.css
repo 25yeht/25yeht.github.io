@@ -96,9 +96,9 @@ button:active {
 }
 .err-msg {
   background-color: lightcoral;
-  color: red;
+  color: darkred;
   border: 2px;
-  border-color: darkred;
+  border-color: red;
   padding: 10px;
   padding-left: 15px;
   padding-right: 15px;
