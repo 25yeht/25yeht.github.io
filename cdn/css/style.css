@@ -116,6 +116,10 @@ button:active {
 	position: relative;
 	left: 48%;
 }
+.big-centered-cont {
+	position: relative;
+	left: 41%;
+}
 header {
   background-color: lightblue;
   position: absolute;
