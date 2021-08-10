@@ -24,7 +24,6 @@ if(document.getElementsByName("jquery")[0]) {
 		});
 		$("#url").keydown(e => {
 			if(e.keyCode == 13) {
-				alert(2);
 				if($("#url").val()) {
 					if(urls[$("#url").val().toLowerCase()]) {
 						$("#aud").attr("src", urls[$("#url").val().toLowerCase()])[0].play();
