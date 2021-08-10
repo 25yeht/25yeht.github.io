@@ -1,7 +1,7 @@
 if(document.getElementsByName("jquery")[0]) {
     console.log("template.js started!");
     //When the document is loaded, do code inside of function in parameter.
-    $(document).ready(function() {
+    $(document).ready(() => {
         //After the document is fully loaded, you can properly manipulate HTML.
         $("#news-div").css("padding", "35px");
         function addP(html) {
@@ -17,15 +17,17 @@ if(document.getElementsByName("jquery")[0]) {
             $("<h1>").addClass("news").addClass("centered").html(html).appendTo("#news-div");
         }
         //Start Generating News
-        addAnch("The Times Hires Novelists to Write Their Paper.");
-		addP("The Times for some reason hires novelists to write Chinese propaganda.");
-		addP("<a style='color: purple; text-decoration: underline;' href='https://www.thetimes.co.uk/article/china-state-tv-channel-cgtn-enlists-uk-student-influencers-dw9v5sbnc' target='_blank'>See The Propaganda</a>");
-		addH("What the propaganda says:");
-		addP("The propaganda says that china is launching an evil program and paying people to do it.");
-		addH("The truth:");
-		addP("CGTN is just recruiting talented people to report the news.");
-		addP("<br>Here are some catches in the video:");
-		addImg("/cdn/img/Propaganda_Video_Catches.jpg", "Some catches of poor editing in the video", "45%", null, "Some catches of poor editing in the video");
+        addAnch("Western media lies about china");
+		addH("Here is a fake 哔哔C story about china:");
+		addP("<a style='color: red;' id='aa' href='https://www.bbc.co.uk/news/business-57419071'>Government ‘dragging feet’ on China forced labo<b><i style='color: black; font-size: 20px;'>u</i></b>r</a>");
+		$("#aa").click(e => {
+			e.preventDefault();
+			var a = open("https://www.bbc.co.uk/news/business-57419071", "_blank", "width=500, height=725");
+			var ab = setTimeout(() => {
+				a.document.body.innerHTML = a.document.body.innerHTML.replaceAll("'", "");
+				clearTimeout(ab);
+			}, 200)
+		});
         for(var i = 0; i < 5; i++) {
             $("<br>").appendTo("body");
         }
