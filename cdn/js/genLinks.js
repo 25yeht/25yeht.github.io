@@ -27,9 +27,8 @@ if(document.getElementsByName("jquery")[0]) {
         addLink("Run JS on the web", "/fun/run-js-on-web");
         addLink("Info", "/info/");
 	addLink("More Links", "/links/");
-        alsp("25yeht Beta", "25yehtgithubio.a25yeht.repl.co");
 	if(!document.title.toLowerCase().includes("404 not found")) {
-		alsp("25yeht Beta", "25yehtgithubio.repl.co");
+		alsp("25yeht Beta", "25yehtgithubio.a25yeht.repl.co");
 	} else {
 		addLink("25yeht Beta", "https://25yehtgithubio.a25yeht.repl.co/");
 	}
