@@ -7,7 +7,11 @@ if(document.getElementsByName("jquery")[0]) {
 		var urls = {
 			"everything": "/cdn/audio/music/everything.mp3",
 			"mp3": "/cdn/audio/music/mp3.mp3",
-			"skyline": "/cdn/audio/music/skyline.mp3"
+			"skyline": "/cdn/audio/music/skyline.mp3",
+			"sky high": "/cdn/audio/elekskhi.mp3",
+			"skyhigh": "/cdn/audio/elekskhi.mp3",
+			"sunburst": "/cdn/audio/Tobu & Itro - Sunburst.mp3",
+			"energy": "/cdn/audio/Elektronomia_Energy_NCS_Release.mp3"
 		};
         $("#play").click(() => {
 			if($("#url").val()) {
