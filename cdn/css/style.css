@@ -112,6 +112,20 @@ button:active {
 	position: relative;
 	left: 45%;
 }
+.thin-white-box {
+	width: 42%;
+	background-color: white;
+	height: 65%;
+	border-radius: 9px;
+	padding: 35px;
+	text-align: center;
+}
+.thin-white-box h1 {
+	color: black;
+}
+.thin-white-box span {
+	color: black;
+}
 .small-centered-cont {
 	position: relative;
 	left: 48%;
