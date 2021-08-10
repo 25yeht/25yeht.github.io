@@ -12,6 +12,16 @@ if(document.getElementsByName("jquery")[0]) {
 			} else {
 				$("#aud").attr("src", l)[0].play();
 			}
+		}).keyup(e => {
+			if(e.keyCode == 13) {
+				if($("#url").val()) {
+					$("#aud").attr("src", $("#url").val())[0].play();
+					$("#url").attr("placeholder", $("#url").val()).val("");
+					l = $("#url").val();
+				} else {
+					$("#aud").attr("src", l)[0].play();
+				}
+			}
 		});
     });
 } else {
