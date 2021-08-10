@@ -11,7 +11,6 @@ if(document.getElementsByName("jquery")[0]) {
 				l = $("#url").val();
 			} else {
 				$("#aud").attr("src", l)[0].play();
-				$("#url").attr("placeholder", l).val("");
 			}
 		});
     });
