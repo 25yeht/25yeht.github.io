@@ -31,7 +31,7 @@ if(document.getElementsByName("jquery")[0]) {
 	if(!document.title.toLowerCase().includes("404 not found")) {
 		alsp("25yeht Beta", "25yehtgithubio.repl.co");
 	} else {
-		addLink("25yeht Beta", "https://25yehtgithubio.repl.co/");
+		addLink("25yeht Beta", "https://25yehtgithubio.a25yeht.repl.co/");
 	}
         addLink("This site is under development.", null, false);
         });
