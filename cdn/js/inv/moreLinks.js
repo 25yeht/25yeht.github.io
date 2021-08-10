@@ -19,6 +19,7 @@ if(document.getElementsByName("jquery")[0]) {
 		addLink("Run JS from a link", "/fun/run-js-from-link/");
 		addLink("25Browser", "/fun/25browser/");
 		addLink("Display an Image", "/fun/display-img/");
+		addLink("Create a playlist", "/fun/make-playlist/");
         });
 } else {
     console.log("jQuery not found!")
