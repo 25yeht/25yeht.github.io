@@ -5,9 +5,9 @@ if(document.getElementsByName("jquery")[0]) {
         //After the document is fully loaded, you can properly manipulate HTML.
 		var l = "";
 		var urls = {
-			everything: "/cdn/audio/music/everything.mp3",
-			mp3: "/cdn/audio/music/mp3.mp3",
-			skyline: "/cdn/audio/music/skyline.mp3"
+			"everything": "/cdn/audio/music/everything.mp3",
+			"mp3": "/cdn/audio/music/mp3.mp3",
+			"skyline": "/cdn/audio/music/skyline.mp3"
 		};
         $("#play").click(() => {
 			if($("#url").val()) {
