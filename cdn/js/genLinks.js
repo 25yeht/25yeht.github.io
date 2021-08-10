@@ -15,7 +15,7 @@ if(document.getElementsByName("jquery")[0]) {
             var $currentLink = $("<a>").attr("href", url).attr("target", "_blank").addClass("link").text(displayName).appendTo("#links");
 	}
 	function alsp(displayName, hostname) {
-		var $currentLink = $("<a>").attr("href", "https://" + hostname + window.location.pathname).addClass("link").text(displayName).appendTo("#links");
+		var $currentLink = $("<a>").attr("href", "https://" + hostname + window.location.pathname + "?switch=true").addClass("link").text(displayName).appendTo("#links");
 	}
         //Add the links here addLink(Text Displayed, Real URL);
         addLink("Home", "/");
