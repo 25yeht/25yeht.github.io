@@ -98,7 +98,7 @@ button:active {
   background-color: lightcoral;
   color: red;
   border: 2px;
-  border-color: red;
+  border-color: darkred;
   padding: 10px;
   padding-left: 15px;
   padding-right: 15px;
