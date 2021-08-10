@@ -108,6 +108,14 @@ button:active {
 .centered {
   text-align: center;
 }
+.centered-cont {
+	position: relative;
+	left: 45%;
+}
+.small-centered-cont {
+	position: relative;
+	left: 48%;
+}
 header {
   background-color: lightblue;
   position: absolute;
@@ -270,6 +278,7 @@ a {
 	background-color: white;
 	border-radius: 9px;
 	box-shadow: 2px 2px 5px black;
+	padding: 22px;
 }
 label {
 	font-size: 25px;
