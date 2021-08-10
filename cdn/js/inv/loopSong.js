@@ -7,16 +7,18 @@ if(document.getElementsByName("jquery")[0]) {
         $("#play").click(() => {
 			if($("#url").val()) {
 				$("#aud").attr("src", $("#url").val())[0].play();
-				$("#url").attr("placeholder", $("#url").val()).val("");
+				$("#url").attr("placeholder", $("#url").val());
 				l = $("#url").val();
 			} else {
 				$("#aud").attr("src", l)[0].play();
 			}
-		}).keyup(e => {
+		});
+		$("#url").keydown(e => {
 			if(e.keyCode == 13) {
+				alert(2);
 				if($("#url").val()) {
 					$("#aud").attr("src", $("#url").val())[0].play();
-					$("#url").attr("placeholder", $("#url").val()).val("");
+					$("#url").attr("placeholder", $("#url").val());
 					l = $("#url").val();
 				} else {
 					$("#aud").attr("src", l)[0].play();
