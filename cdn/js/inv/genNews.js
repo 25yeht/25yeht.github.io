@@ -18,7 +18,7 @@ if(document.getElementsByName("jquery")[0]) {
         }
         //Start Generating News
         addAnch("Western media lies about china");
-		addH("Here is a fake 哔哔C story about china:");
+		addH("Here is a fake 哔哔西 story about china:");
 		addP("<a style='color: red;' id='aa' href='https://www.bbc.co.uk/news/business-57419071'>Government ‘dragging feet’ on China forced labo<b><i style='color: black; font-size: 20px;'>u</i></b>r</a>");
 		$("#aa").click(e => {
 			e.preventDefault();
