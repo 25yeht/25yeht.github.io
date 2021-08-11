@@ -94,6 +94,10 @@ button {
 button:active {
   background-color: rgb(56, 56, 56);
 }
+.emergency-alert {
+	color: red;
+	font-weight: 12px;
+}
 .err-msg {
   background-color: lightcoral;
   color: darkred;
