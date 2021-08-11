@@ -3,6 +3,7 @@ if(document.getElementsByName("jquery")[0]) {
     //When the document is loaded, do code inside of function in parameter.
     $(document).ready(() => {
         //After the document is fully loaded, you can properly manipulate HTML.
+		$("textarea").focus();
 		function enableTab(id) {
 			var el = document.getElementById(id);
 			el.onkeydown = function(e) {
