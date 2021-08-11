@@ -5,7 +5,7 @@ if(document.getElementsByName("jquery")[0]) {
         function addLink(displayName, url, isLink) {
             if(window.location.pathname.charAt(window.location.pathname.length - 1) == "/" && url == window.location.pathname) {
                 var $currentLink = $("<span>").addClass("link").text(displayName).appendTo("#links2");
-            } else if (window.location.pathname.charAt(window.location.pathname.length - 1) !== "/" && url + "/" == window.location.pathname || isLink == false) {
+            } else if (window.location.pathname[window.location.pathname.length - 1] !== "/" && url + "/" == window.location.pathname || isLink == false) {
                 var $currentLink = $("<span>").addClass("link").text(displayName).appendTo("#links2");
             } else {
                 var $currentLink = $("<a>").attr("href", url).addClass("link").text(displayName).appendTo("#links2");
@@ -20,6 +20,7 @@ if(document.getElementsByName("jquery")[0]) {
 		addLink("25Browser", "/fun/25browser/");
 		addLink("Display an Image", "/fun/display-img/");
 		addLink("Loop a song!", "/fun/loop-song/");
+		addLink("Easy Notepad", "/fun/easy-notepad");
         });
 } else {
     console.log("jQuery not found!")
