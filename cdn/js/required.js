@@ -13,7 +13,7 @@ if(document.getElementsByName("jquery")[0]) {
 			}
 		});
 		//Define function $getSearchParams(param);
-		function $getSearchParams(param) {
+		function $getSearchParam(param) {
 			return new URL(location.href).searchParams.get(param);
 		}
     });
