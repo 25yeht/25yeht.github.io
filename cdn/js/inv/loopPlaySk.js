@@ -11,7 +11,7 @@ $(document).ready(() => {
             $("#pl-sk-hi").remove();
             $("#lp-sk-hi").remove();
 			$("#gba").on("click", function() {
-				window.location.pathname = window.location.reload();
+				location.reload();
 				$("#gba").text("Reloading...");
 			});
         });
@@ -25,7 +25,7 @@ $(document).ready(() => {
             $("#pl-sk-hi").remove();
             $("#lp-sk-hi").remove();
 			$("#gba").on("click", function() {
-				window.location.reload();
+				location.reload();
 				$("#gba").text("Reloading...");
 			});
     });
