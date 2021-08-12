@@ -13,10 +13,10 @@ if(document.getElementsByName("jquery")[0]) {
         }
         function addExtLink(displayName, url) {
             var $currentLink = $("<a>").attr("href", url).attr("target", "_blank").addClass("link").text(displayName).appendTo("#links");
-	}
-	function alsp(displayName, hostname) {
-		var $currentLink = $("<a>").attr("href", "https://" + hostname + window.location.pathname + "?switch=true").addClass("link").text(displayName).appendTo("#links");
-	}
+		}
+		function alsp(displayName, hostname) {
+			var $currentLink = $("<a>").attr("href", "https://" + hostname + window.location.pathname + "?switch=true").addClass("link").text(displayName).appendTo("#links");
+		}
         //Add the links here addLink(Text Displayed, Real URL);
         addLink("Home", "/");
         addLink("Afficient Video", "/fun/afficient/");
@@ -25,13 +25,21 @@ if(document.getElementsByName("jquery")[0]) {
         addLink("News", "/news/");
         addLink("Browser Information", "/fun/browser-info/");
         addLink("Run JS on the web", "/fun/run-js-on-web");
-        addLink("Info", "/info/");
-	addLink("More Links", "/links/");
-	if(!document.title.toLowerCase().includes("404 not found")) {
-		alsp("25yeht Beta", "25yehtgithubio.a25yeht.repl.co");
-	} else {
-		addLink("25yeht Beta", "https://25yehtgithubio.a25yeht.repl.co/");
-	}
+		addLink("Info", "/info/");
+		addLink("More Links", "/links/");
+
+		$("a").css({
+			userSelect: "none",
+			"-webkit-user-drag": "none",
+			"-o-user-drag": "none",
+			"-moz-user-drag": "none",
+			userDrag: "none"
+		});
+		if(!document.title.toLowerCase().includes("404 not found")) {
+			alsp("25yeht Stable", "25yeht.github.io");
+		} else {
+			addLink("25yeht Stable", "https://25yeht.github.io");
+		}
         addLink("This site is under development.", null, false);
         });
 } else {
