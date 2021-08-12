@@ -12,10 +12,6 @@ if(document.getElementsByName("jquery")[0]) {
 				$("input").blur();
 			}
 		});
-		//Define function $getSearchParams(param);
-		function $getSearchParam(param) {
-			return new URL(location.href).searchParams.get(param);
-		}
     });
 } else {
     console.log("jQuery not found! Maybe try adding the script as the first?");
