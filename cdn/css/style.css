@@ -69,7 +69,7 @@ span {
 p {
 	color: white;
 }
-textarea:focus, input:focus {
+textarea:focus, input:focus, button:focus {
 	outline: none;
 }
 .container-p {
