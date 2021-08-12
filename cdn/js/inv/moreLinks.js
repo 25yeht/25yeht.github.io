@@ -21,6 +21,15 @@ if(document.getElementsByName("jquery")[0]) {
 		addLink("Display an Image", "/fun/display-img/");
 		addLink("Loop a song!", "/fun/loop-song/");
 		addLink("Easy Notepad", "/fun/easy-notepad");
+		addLink("Interactive 7-Minute Workout", "/fun/workout-activity/");
+
+		$("a").css({
+			userSelect: "none",
+			"-webkit-user-drag": "none",
+			"-o-user-drag": "none",
+			"-moz-user-drag": "none",
+			userDrag: "none"
+		});
         });
 } else {
     console.log("jQuery not found!")
