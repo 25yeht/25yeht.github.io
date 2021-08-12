@@ -28,7 +28,7 @@ if(document.getElementsByName("jquery")[0]) {
 					color: "black",
 					textAlign: "center"
 				}).hide().fadeIn();
-				var secLeft = ((6*30) *3000) - 60;
+				var secLeft = ((6*30) *300) - 60;
 				var fin = false;
 				var don = false;
 				var minInt = setInterval(_ => {
