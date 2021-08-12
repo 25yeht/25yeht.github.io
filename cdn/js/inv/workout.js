@@ -49,7 +49,7 @@ if(document.getElementsByName("jquery")[0]) {
 						$("#sec").text("You have " + secLeft + " milliseconds left.");
 						secLeft -= 1;
 					}
-				}, 10);
+				}, 1);
 				var t30SecInt = setInterval(_ => {
 					if(!fin) {
 						new Notification("Reminder", {
