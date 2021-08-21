@@ -10,7 +10,7 @@ $(document).ready(() => {
 		console.log(logText);
 		document.title = "Playing: " + name +" - 25yeht";
 		$("<p>").addClass("container-p").html(attrText).appendTo("#elektronomia-sky-high-js-player-div");
-		var audio = $("<audio>").attr("src", url).attr("autoplay", true).attr("controls", true).appendTo("#elektronomia-sky-high-js-player-div");
+		var audio25yehtGithubIo = $("<audio>").attr("src", url).attr("autoplay", true).attr("controls", true).appendTo("#elektronomia-sky-high-js-player-div");
 		$("<br>").appendTo("#elektronomia-sky-high-js-player-div");
 		$("<button>").attr("id", "gba").text("Get Buttons Again").appendTo("#elektronomia-sky-high-js-player-div");
 		$("#pl-sk-hi").remove();
@@ -25,7 +25,7 @@ $(document).ready(() => {
 		console.log(logText);
 		document.title = "Playing: " + name + " - 25yeht";
 		$("<p>").addClass("container-p").html(attrText).appendTo("#elektronomia-sky-high-js-player-div");
-		var audio = $("<audio>").attr("src", url).attr("autoplay", true).attr("loop", true).appendTo("body");
+		var audio25yehtGithubIo = $("<audio>").attr("src", url).attr("autoplay", true).attr("loop", true).appendTo("body");
 		$("<button>").attr("id", "gba").text("Get Buttons Again").appendTo("#elektronomia-sky-high-js-player-div");
 		$("#pl-sk-hi").remove();
 		$("#lp-sk-hi").remove();
@@ -40,7 +40,7 @@ $(document).ready(() => {
 	var t25yeht_PPLSPluginDetectionInterval = setInterval(_ => {
 		if(this) {
 			if(this["t25yeht_PPLS:RUNNING"] && !t25yehtPluginDetectorFaded) {
-				audio.remove();
+				audio25yehtGithubIo.remove();
 				$("#elektronomia-sky-high-js-player-div").hide().html("<h1>Plugin detected!</h1><br>").fadeIn();
 				t25yehtPluginDetectorFaded = true;
 			}
