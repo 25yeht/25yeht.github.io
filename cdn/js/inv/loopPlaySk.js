@@ -36,6 +36,7 @@ $(document).ready(() => {
     });
 	//Detect 25yeht PPLS plugin
 	var t25yehtPluginDetectorFaded = false;
+	var canChangeTitle = true;
 	var t25yeht_PPLSPluginDetectionInterval = setInterval(_ => {
 		if(this) {
 			if(this["t25yeht_PPLS:RUNNING"] && !t25yehtPluginDetectorFaded) {
@@ -44,11 +45,19 @@ $(document).ready(() => {
 				t25yehtPluginDetectorFaded = true;
 			}
 			if(t25yehtPluginDetectorFaded) {
-				$("#elektronomia-sky-high-js-player-div").html("<h1>Plugin detected! Now playing: " + this["t25yeht_PPLS:SONGNAMES"][urlIndex] + "</h1><br>");
+				if(name.toUpperCase() != this["t25yeht_PPLS:SONGNAMES"][urlIndex].toUpperCase()) {
+					$("#elektronomia-sky-high-js-player-div").html("<h1>Plugin detected!<br><br>Now playing: " + this["t25yeht_PPLS:SONGNAMES"][urlIndex] + "</h1><br>");
+				} else {
+					$("#elektronomia-sky-high-js-player-div").html("<h1>Plugin detected!<br><br>Now playing: " + this["t25yeht_PPLS:SONGNAMES"][urlIndex] + " (Theme song)</h1><br>");
+				}
+				if(canChangeTitle) {
+					document.title = "Playing " + this["t25yeht_PPLS:SONGNAMES"][urlIndex] + " from plugin - 25yeht";
+				}
 			}
 		}
 	}, 100);
     window.onbeforeunload = () => {
+		canChangeTitle = false;
         document.title = "25yeht";
     };
 });
