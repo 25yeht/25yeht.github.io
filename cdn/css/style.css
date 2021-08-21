@@ -127,6 +127,14 @@ button:active {
 	padding: 35px;
 	text-align: center;
 }
+br {
+	user-select: none;
+	-webkit-user-drag: none;
+	-moz-user-drag: none;
+	-ms-user-drag: none;
+	-o-user-drag: none;
+	user-drag: none;
+}
 .thin-white-box h1 {
 	color: black;
 }
@@ -228,6 +236,9 @@ button {
 span {
 	font-family: 'proxima_nova_rgregular', sans-serif;
 	
+}
+input.big {
+	font-size: 20px;
 }
 textarea {
 	resize: none;
