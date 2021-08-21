@@ -17,19 +17,13 @@ if(document.getElementsByName("jquery")[0]) {
             $("<h1>").addClass("news").addClass("centered").html(html).appendTo("#news-div");
         }
         //Start Generating News
-        /*addAnch("Western media lies about china");
-		addH("Here is a fake 哔哔西 story about china:");
-		addP("<a style='color: red;' id='aa' href='https://www.bbc.co.uk/news/business-57419071'>Government ‘dragging feet’ on China forced labo<b><i style='color: black; font-size: 20px;'>u</i></b>r</a>");
+        addAnch("Western media lies about china");
+		addH("Here is a fake 哔哔西 (BBC) story written by a professional BBC novelist about China:");
+		addP("<a style='color: red;' target='_blank' id='aa' href='https://www.bbc.co.uk/news/business-57419071'>Government ‘dragging feet’ on China forced labo<b><i style='color: black; font-size: 50px;'>u</i></b>r</a>");
 		$("#aa").click(e => {
 			e.preventDefault();
-			var a = open("https://www.bbc.co.uk/news/business-57419071", "_blank", "width=500, height=725");
-			var ab = setTimeout(() => {
-				a.document.body.innerHTML = a.document.body.innerHTML.replaceAll("'", "");
-				clearTimeout(ab);
-			}, 200)
-		});*/
-		addAnch("<span style='color: red; font-family: arial, helvetica, sans-serif;'>SEVERE THUNDERSTORMS REPORTED THIS WEEK STARTING FROM 8/10/2021 CENTERAL TIME US FORMAT US DATE AND TIME</span>")
-		$("<iframe>").attr("src", "https://www.weather.gov/lot/weatherstory").appendTo("#news-div");
+			open("https://www.bbc.co.uk/news/business-57419071", "_blank", "width=500, height=725");
+		});
         for(var i = 0; i < 5; i++) {
             $("<br>").appendTo("body");
         }
