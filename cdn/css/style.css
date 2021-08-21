@@ -273,6 +273,7 @@ select {
 label {
 	color: white;
 	font-family: 'proxima_nova_rgregular', Arial, Helvetica, sans-serif;
+	user-select: none;
 }
 .white-div {
 	border-radius: 9px;
