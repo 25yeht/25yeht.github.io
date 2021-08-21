@@ -4,13 +4,14 @@ $(document).ready(() => {
 	var url = "/cdn/audio/Tobu & Itro - Sunburst.mp3";
 	var attrText = "Song: Tobu & Itro - Sunburst [NCS Release]<br>Music provided by NoCopyrightSounds<br>Free Download/Stream: N/A<br>Watch: <a href=\"javascript:open(&quot;http://youtu.be/4lXBHD5C8do&quot;, &quot;_blank&quot;, &quot;width=450, height=650&quot)\">http://youtu.be/4lXBHD5C8do</a>";
 	var logText = "Play/loop button clicked!";
+	var t25yehtGithubIoAudio;
 	//Generate play button and audio
 	$("<button>").attr("id", "pl-sk-hi").html("Play " + name).appendTo("#elektronomia-sky-high-js-player-div");
 	$("#pl-sk-hi").on("click", function() {
 		console.log(logText);
 		document.title = "Playing: " + name +" - 25yeht";
 		$("<p>").addClass("container-p").html(attrText).appendTo("#elektronomia-sky-high-js-player-div");
-		var audio25yehtGithubIo = $("<audio>").attr("src", url).attr("autoplay", true).attr("controls", true).appendTo("#elektronomia-sky-high-js-player-div");
+		t25yehtGithubIoAudio = $("<audio>").attr("src", url).attr("autoplay", true).attr("controls", true).appendTo("#elektronomia-sky-high-js-player-div");
 		$("<br>").appendTo("#elektronomia-sky-high-js-player-div");
 		$("<button>").attr("id", "gba").text("Get Buttons Again").appendTo("#elektronomia-sky-high-js-player-div");
 		$("#pl-sk-hi").remove();
@@ -25,7 +26,7 @@ $(document).ready(() => {
 		console.log(logText);
 		document.title = "Playing: " + name + " - 25yeht";
 		$("<p>").addClass("container-p").html(attrText).appendTo("#elektronomia-sky-high-js-player-div");
-		var audio25yehtGithubIo = $("<audio>").attr("src", url).attr("autoplay", true).attr("loop", true).appendTo("body");
+		t25yehtGithubIoAudio = $("<audio>").attr("src", url).attr("autoplay", true).attr("loop", true).appendTo("body");
 		$("<button>").attr("id", "gba").text("Get Buttons Again").appendTo("#elektronomia-sky-high-js-player-div");
 		$("#pl-sk-hi").remove();
 		$("#lp-sk-hi").remove();
@@ -40,7 +41,14 @@ $(document).ready(() => {
 	var t25yeht_PPLSPluginDetectionInterval = setInterval(_ => {
 		if(this) {
 			if(this["t25yeht_PPLS:RUNNING"] && !t25yehtPluginDetectorFaded) {
-				audio25yehtGithubIo.remove();
+				if(t25yehtGithubIoAudio) {
+					try{
+						t25yehtGithubIoAudio.remove();
+					} catch(error) {
+						alert("There was an error allowing the extension! Error: " + error);
+						clearInterval(t25yeht_PPLSPluginDetectionInterval);
+					}
+				}
 				$("#elektronomia-sky-high-js-player-div").hide().html("<h1>Plugin detected!</h1><br>").fadeIn();
 				t25yehtPluginDetectorFaded = true;
 			}
