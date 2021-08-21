@@ -25,7 +25,7 @@ if(document.getElementsByName("jquery")[0]) {
 			open("https://www.bbc.co.uk/news/business-57419071", "_blank", "width=500, height=725");
 		});
         for(var i = 0; i < 5; i++) {
-            $("<br>").appendTo("body");
+            $("<br>").appendTo("#news-div");
         }
         //End Generating News
     });
