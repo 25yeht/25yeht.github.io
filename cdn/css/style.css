@@ -272,7 +272,7 @@ select {
 }
 label {
 	color: white;
-	font-family: 'proxima_nova_rgregular';
+	font-family: 'proxima_nova_rgregular', Arial, Helvetica, sans-serif;
 }
 .white-div {
 	border-radius: 9px;
