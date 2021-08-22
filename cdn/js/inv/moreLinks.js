@@ -56,7 +56,6 @@ if(document.getElementsByName("jquery")[0]) {
 		addLink("Loop a song!", "/fun/loop-song/");
 		addLink("Easy Notepad", "/fun/easy-notepad");
 		addLink("Interactive 7-Minute Workout", "/fun/workout-activity/");
-		addLink("Search", "/search/");
 
 		$("a").css({
 			userSelect: "none",
