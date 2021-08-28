@@ -80,9 +80,9 @@ if(document.getElementsByName("jquery")[0]) {
 			userDrag: "none"
 		});
 		if(!document.title.toLowerCase().includes("404 not found")) {
-			alsp("25yeht Stable", "25yeht.github.io");
+			alsp("25yeht Beta", "25yehtgithubio.a25yeht.repl.co");
 		} else {
-			addLink("25yeht Stable", "https://25yeht.github.io");
+			addLink("25yeht Beta", "https://25yehtgithubio.a25yeht.repl.co");
 		}
         addLink("This site is under development.", null, false);
         });
