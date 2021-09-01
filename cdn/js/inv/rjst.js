@@ -29,13 +29,13 @@ if(document.getElementsByName("jquery")[0]) {
 		enableTab("notepad");
         $("<button>").text("Run (jQuery is included)").attr("id", "rjst-btn").appendTo("#rjst-btn-div");
         $("#rjst-btn").on("click", function() {
-            if($("#notepad").val()[0].includes("while(true) {") || $("#notepad").val().includes("while(true){") || $("#notepad").val().includes("while(true)|{")) {
+            if(false) {
                 alert("Woah there buddy, a while true loop will lag this webpage!");
             } else {
                 try {
                     eval($("#notepad").val());
                 } catch(error) {
-                    alert("Script error!\n\n" + error + "\n\n Please check your code and try again.")
+                    alert("Script error!\n" + error + "\nPlease check your code and try again.")
                 }
             }
         });
