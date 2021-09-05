@@ -202,7 +202,8 @@ video {
 }
 button {
     font-size: 20px;
-	box-shadow: 2px 2px 5px black;
+    box-shadow: 2px 2px 5px black;
+    cursor: pointer;
 }
 .lbl-aft {
 	position: relative;
