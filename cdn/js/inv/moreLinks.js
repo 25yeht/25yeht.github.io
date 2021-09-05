@@ -40,8 +40,6 @@ if(document.getElementsByName("jquery")[0]) {
 				}).click(_ => {
 					if(isOnline) {
 						location.href = url;
-					} else {
-						alert("Error! You are not online! Please connnect to the internet and the try again");
 					}
 				}).appendTo("#links2");
             }
@@ -58,8 +56,6 @@ if(document.getElementsByName("jquery")[0]) {
 			}).click(_ => {
 				if(isOnline) {
 					location.href = url;
-				} else {
-					alert("Error! You are not online! Please connnect to the internet and the try again");
 				}
 			}).appendTo("#links-2");
 		}
