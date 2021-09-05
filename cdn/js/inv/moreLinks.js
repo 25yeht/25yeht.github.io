@@ -1,3 +1,10 @@
+var isOnline = true;
+addEventListener("online", function() {
+	isOnline = true;
+});
+addEventListener("offline", function() {
+	isOnline = false;
+});
 if(document.getElementsByName("jquery")[0]) {
     console.log("genLinks.js started!");
     $(document).ready(function() {
@@ -31,7 +38,11 @@ if(document.getElementsByName("jquery")[0]) {
 					"user-select": "none",
 					"cursor": "pointer"
 				}).click(_ => {
-					location.href = url;
+					if(isOnline) {
+						location.href = url;
+					} else {
+						alert("Error! You are not online! Please connnect to the internet and the try again");
+					}
 				}).appendTo("#links2");
             }
         }
@@ -45,7 +56,11 @@ if(document.getElementsByName("jquery")[0]) {
 				"user-select": "none",
 				"cursor": "pointer"
 			}).click(_ => {
-				location.href = url;
+				if(isOnline) {
+					location.href = url;
+				} else {
+					alert("Error! You are not online! Please connnect to the internet and the try again");
+				}
 			}).appendTo("#links-2");
 		}
         //Add the links here addLink(Text Displayed, Real URL);
@@ -56,7 +71,6 @@ if(document.getElementsByName("jquery")[0]) {
 		addLink("Loop a song!", "/fun/loop-song/");
 		addLink("Easy Notepad", "/fun/easy-notepad");
 		addLink("Interactive 7-Minute Workout", "/fun/workout-activity/");
-	    
 		addLink("Random Roblox Ads", "/fun/roblox-ads");
 
 		$("a").css({
