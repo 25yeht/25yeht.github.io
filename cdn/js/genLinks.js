@@ -1,3 +1,18 @@
+var isOnline = true;
+addEventListener("online", function() {
+	isOnline = true;
+	$(".link").css({
+		color: "white",
+		cursor: "pointer"
+	});
+});
+addEventListener("offline", function() {
+	isOnline = false;
+	$(".link").css({
+		color: "red",
+		cursor: "not-allowed"
+	});
+});
 if(document.getElementsByName("jquery")[0]) {
     console.log("genLinks.js started!");
     $(document).ready(function() {
@@ -31,7 +46,9 @@ if(document.getElementsByName("jquery")[0]) {
 					"user-select": "none",
 					"cursor": "pointer"
 				}).click(_ => {
-					location.href = url;
+					if(isOnline) {
+						location.href = url;
+					}
 				}).appendTo("#links");
             }
         }
@@ -45,7 +62,9 @@ if(document.getElementsByName("jquery")[0]) {
 				"user-select": "none",
 				"cursor": "pointer"
 			}).click(_ => {
-				location.href = url;
+				if(isOnline) {
+						location.href = url;
+					}
 			}).appendTo("#links");
 		}
 		function alsp(displayName, hostname) {
