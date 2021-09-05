@@ -63,8 +63,8 @@ if(document.getElementsByName("jquery")[0]) {
 				"cursor": "pointer"
 			}).click(_ => {
 				if(isOnline) {
-						location.href = url;
-					}
+					location.href = url;
+				}
 			}).appendTo("#links");
 		}
 		function alsp(displayName, hostname) {
@@ -77,7 +77,9 @@ if(document.getElementsByName("jquery")[0]) {
 				"user-select": "none",
 				"cursor": "pointer"
 			}).click(_ => {
-				location.href = "https://" + hostname + location.pathname + "?switch=true";
+				if(isOnline) {
+					location.href = "https://" + hostname + location.pathname + "?switch=true";
+				}
 			}).appendTo("#links");
 		}
         //Add the links here addLink(Text Displayed, Real URL);
