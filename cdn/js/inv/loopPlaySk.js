@@ -4,14 +4,15 @@ $(document).ready(function() {
 	var url = "/cdn/audio/music/CalmingMusic.mp3";
 	var attrText = "(No attribution text availible)";
 	var logText = "Play/loop button clicked!";
-	var t25yehtGithubIoAudio;
+	var $t25yehtGithubIoAudio;
 	//Generate play button and audio
+	//Play music button
 	$("<button>").attr("id", "pl-sk-hi").html("Play " + name).appendTo("#elektronomia-sky-high-js-player-div");
 	$("#pl-sk-hi").on("click", function() {
 		console.log(logText);
 		document.title = "Playing: " + name +" - 25yeht";
 		$("<p>").addClass("container-p").html(attrText).appendTo("#elektronomia-sky-high-js-player-div");
-		t25yehtGithubIoAudio = $("<audio>").attr("src", url).attr("autoplay", true).attr("controls", true).appendTo("#elektronomia-sky-high-js-player-div");
+		$t25yehtGithubIoAudio = $("<audio>").attr("src", url).attr("autoplay", true).attr("controls", true).appendTo("#elektronomia-sky-high-js-player-div");
 		$("<br>").appendTo("#elektronomia-sky-high-js-player-div");
 		$("<button>").attr("id", "gba").text("Get Buttons Again").appendTo("#elektronomia-sky-high-js-player-div");
 		$("#pl-sk-hi").remove();
@@ -21,12 +22,22 @@ $(document).ready(function() {
 			$("#gba").text("Reloading...");
 		});
 	});
+	//Loop music button
     $("<button>").text("Loop " + name).attr("id", "lp-sk-hi").appendTo("#elektronomia-sky-high-js-player-div");
     $("#lp-sk-hi").on("click", function() {
 		console.log(logText);
 		document.title = "Playing: " + name + " - 25yeht";
-		$("<p>").addClass("container-p").html(attrText).appendTo("#elektronomia-sky-high-js-player-div");
-		t25yehtGithubIoAudio = $("<audio>").attr("src", url).attr("autoplay", true).attr("loop", true).appendTo("body");
+		$("<p>").addClass("container-p").html(attrText + "<span id='gdl'><br><br><a class='link' style='color: lightblue; cursor: pointer;' id='dl' href='javascript:void(0);'>Disable loop</a></span>").appendTo("#elektronomia-sky-high-js-player-div");
+		$t25yehtGithubIoAudio = $("<audio>").attr("src", url).attr("autoplay", true).attr("loop", true).attr("controls", true).appendTo("#elektronomia-sky-high-js-player-div");
+		$("#dl").click(function() {
+			$("#gdl").remove();
+			$t25yehtGithubIoAudio.attr("loop", false);
+			$t25yehtGithubIoAudio[0].pause();
+			$t25yehtGithubIoAudio[0].currentTime = 0;
+			$t25yehtGithubIoAudio[0].play();
+		});
+		$("<br>").appendTo("#elektronomia-sky-high-js-player-div");
+		$("<br>").appendTo("#elektronomia-sky-high-js-player-div");
 		$("<button>").attr("id", "gba").text("Get Buttons Again").appendTo("#elektronomia-sky-high-js-player-div");
 		$("#pl-sk-hi").remove();
 		$("#lp-sk-hi").remove();
@@ -41,9 +52,9 @@ $(document).ready(function() {
 	var t25yeht_PPLSPluginDetectionInterval = setInterval(_ => {
 		if(this) {
 			if(this["t25yeht_PPLS:RUNNING"] && !t25yehtPluginDetectorFaded) {
-				if(t25yehtGithubIoAudio) {
+				if($t25yehtGithubIoAudio) {
 					try{
-						t25yehtGithubIoAudio.remove();
+						$t25yehtGithubIoAudio.remove();
 					} catch(error) {
 						alert("There was an error allowing the extension! Error: " + error);
 						clearInterval(t25yeht_PPLSPluginDetectionInterval);
