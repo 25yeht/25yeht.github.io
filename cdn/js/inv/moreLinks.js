@@ -56,6 +56,8 @@ if(document.getElementsByName("jquery")[0]) {
 		addLink("Loop a song!", "/fun/loop-song/");
 		addLink("Easy Notepad", "/fun/easy-notepad");
 		addLink("Interactive 7-Minute Workout", "/fun/workout-activity/");
+	    
+		addLink("Random Roblox Ads", "/fun/roblox-ads");
 
 		$("a").css({
 			userSelect: "none",
