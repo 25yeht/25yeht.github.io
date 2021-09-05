@@ -1,8 +1,8 @@
-$(document).ready(() => {
+$(document).ready(function() {
 	//Define song variables
-	var name = "Sunburst";
-	var url = "/cdn/audio/Tobu & Itro - Sunburst.mp3";
-	var attrText = "Song: Tobu & Itro - Sunburst [NCS Release]<br>Music provided by NoCopyrightSounds<br>Free Download/Stream: N/A<br>Watch: <a href=\"javascript:open(&quot;http://youtu.be/4lXBHD5C8do&quot;, &quot;_blank&quot;, &quot;width=450, height=650&quot)\">http://youtu.be/4lXBHD5C8do</a>";
+	var name = "Calming Music";
+	var url = "/cdn/audio/music/CalmingMusic.mp3";
+	var attrText = "(No attribution text availible)";
 	var logText = "Play/loop button clicked!";
 	var t25yehtGithubIoAudio;
 	//Generate play button and audio
@@ -64,7 +64,7 @@ $(document).ready(() => {
 			}
 		}
 	}, 100);
-    window.onbeforeunload = () => {
+    window.onbeforeunload = function() {
 		canChangeTitle = false;
         document.title = "25yeht";
     };
