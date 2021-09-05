@@ -27,7 +27,7 @@ $(document).ready(function() {
     $("#lp-sk-hi").on("click", function() {
 		console.log(logText);
 		document.title = "Playing: " + name + " - 25yeht";
-		$("<p>").addClass("container-p").html(attrText + "<span id='gdl'><br><br><a class='link' style='color: lightblue; cursor: pointer;' id='dl' href='javascript:void(0);'>Disable loop</a></span>").appendTo("#elektronomia-sky-high-js-player-div");
+		$("<p>").addClass("container-p").html(attrText + "<span id='gdl'><br><br><a style='color: lightblue; cursor: pointer;' id='dl' href='javascript:void(0);'>Disable loop</a></span>").appendTo("#elektronomia-sky-high-js-player-div");
 		$t25yehtGithubIoAudio = $("<audio>").attr("src", url).attr("autoplay", true).attr("loop", true).attr("controls", true).appendTo("#elektronomia-sky-high-js-player-div");
 		$("#dl").click(function() {
 			$("#gdl").remove();
