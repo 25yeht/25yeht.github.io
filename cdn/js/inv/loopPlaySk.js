@@ -1,7 +1,7 @@
 $(document).ready(function() {
 	//Define song variables
-	var name = "Calming Music";
-	var url = "/cdn/audio/music/CalmingMusic.mp3";
+	var name = "Skyline";
+	var url = "/cdn/audio/music/skyline_Ikson_09062021.mp3";
 	var attrText = "(No attribution text availible)";
 	var logText = "Play/loop button clicked!";
 	var $t25yehtGithubIoAudio;
