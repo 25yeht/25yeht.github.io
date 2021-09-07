@@ -4,6 +4,7 @@ $(document).ready(function() {
 	var url = "/cdn/audio/music/skyline_Ikson_09062021.mp3";
 	var attrText = "(No attribution text availible)";
 	var logText = "Play/loop button clicked!";
+	var canDownload = false;
 	var $t25yehtGithubIoAudio;
 	//Generate play button and audio
 	//Play music button
@@ -13,6 +14,9 @@ $(document).ready(function() {
 		document.title = "Playing: " + name +" - 25yeht";
 		$("<p>").addClass("container-p").html("<span aria-label='Attribution text'>" + attrText + "</span>").appendTo("#elektronomia-sky-high-js-player-div");
 		$t25yehtGithubIoAudio = $("<audio>").attr("src", url).attr("autoplay", true).attr("controls", true).appendTo("#elektronomia-sky-high-js-player-div");
+		if(!canDownload) {
+			$t25yehtGithubIoAudio.attr("controlslist", "nodownload");
+		}
 		$("<br>").appendTo("#elektronomia-sky-high-js-player-div");
 		$("<button>").attr("id", "gba").text("Get Buttons Again").appendTo("#elektronomia-sky-high-js-player-div");
 		$("#pl-sk-hi").remove();
@@ -29,6 +33,9 @@ $(document).ready(function() {
 		document.title = "Playing: " + name + " - 25yeht";
 		$("<p>").addClass("container-p").html("<span aria-label='Attribution text'>" + attrText + "</span><span id='gdl'><br><br><a style='color: lightblue; cursor: pointer;' id='dl' href='javascript:void(0);' aria-label='Disable Loop Button'>Disable loop</a></span>").appendTo("#elektronomia-sky-high-js-player-div");
 		$t25yehtGithubIoAudio = $("<audio>").attr("src", url).attr("autoplay", true).attr("loop", true).attr("controls", true).appendTo("#elektronomia-sky-high-js-player-div");
+		if(!canDownload) {
+			$t25yehtGithubIoAudio.attr("controlslist", "nodownload");
+		}
 		$("#dl").click(function() {
 			$("#gdl").remove();
 			$t25yehtGithubIoAudio.attr("loop", false);
