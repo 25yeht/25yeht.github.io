@@ -14,7 +14,7 @@ if(document.getElementsByName("jquery")[0]) {
 		});
 		//Detect slow connection
 		var slowLoad = setTimeout(function() {
-			alert("Hmm... Your connection to the server is slow so some of the fonts/scripts may not load.");
+			alert("Hmm... Your connection to the server is slow so some of the fonts/scripts may not load. If you've just cleared your cache or this is your first time visiting this site, this is normal.");
 		}, 250);
 
 		addEventListener('load', function() {
