@@ -1,7 +1,7 @@
 $(document).ready(function() {
 	//Define song variables
 	var name = "Adventures (Shortened)";
-	var url = "/cdn/audio/music/adventures_AHimitsu_08092021_shortened.mp3";
+	var url = "/cdn/audio/music/adventures_AHimitsu_shortened.mp3";
 	var attrText = "(No attribution text availible)";
 	var logText = "Play/loop button clicked!";
 	var canDownload = false;
