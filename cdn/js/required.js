@@ -7,19 +7,11 @@ if(document.getElementsByName("jquery")[0]) {
 			window.location.href = window.location.href.replace("index.html", "");
 		}
 		//Unfocus inputs when enter is pressed
-		$("input").keydown(e => {
+		$("input").keydown(function() {
 			if(e.keyCode == 13) {
 				$("input").blur();
 			}
 		});
-		//Detect slow connection
-		var slowLoad = setTimeout(function() {
-			alert("Hmm... Your connection to the server is slow so some of the fonts/scripts may not load. If you've just cleared your cache or this is your first time visiting this site, this is normal.");
-		}, 5000);
-
-		addEventListener('load', function() {
-			clearTimeout(slowLoad);
-		}, false);
     });
 } else {
     console.log("jQuery not found! Maybe try adding the script as the first?");
