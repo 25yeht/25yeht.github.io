@@ -45,7 +45,8 @@ h1{
 body {
   font-family: 'Poppins', 'Source Sans Pro', Arial, Helvetica, sans-serif;
   padding: 10px;
-  background: url('/cdn/img/background.png');
+  background-image: url('/cdn/img/background.png');
+  background-color: rgb(20, 20, 30);
   background-attachment: fixed;
 }
 h2 {
