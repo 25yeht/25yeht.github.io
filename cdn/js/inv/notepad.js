@@ -22,7 +22,6 @@ if(document.getElementsByName("jquery")[0]) {
 
 					// prevent the focus lose
 					return false;
-
 				}
 			};
 		}
@@ -31,6 +30,10 @@ if(document.getElementsByName("jquery")[0]) {
 			if(localStorage.getItem("notepad-save") && typeof localStorage.getItem("notepad-save") == "string") {
 				try {
 					$("#easy-notepad").val(localStorage.getItem("notepad-save"));
+					if(new URL(location.href).searchParams.get("cited")) {
+						$("#notepad-container").append("<button id='back'>Back to citation</button>");
+						$("#back").click(history.back);
+					}
 				} catch(err) {
 					alert("There was an error in the code! Message: " + err)
 				}
@@ -43,7 +46,7 @@ if(document.getElementsByName("jquery")[0]) {
 				localStorage.setItem("notepad-save", $("#easy-notepad").val());
 			}, 15);
 		} else {
-			$("<h1 class='err-msg'>Sorry, but your browser does not suppord data storing.</h1>").appendTo("body");
+			$("<h1 class='err-msg'>Sorry, but your browser does not support data storing.</h1>").appendTo("body");
 		}
     });
 } else {
