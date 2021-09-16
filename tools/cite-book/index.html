@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <title>Cite a book - 25yeht</title>
+    <link rel="stylesheet" href="/cdn/css/style.css">
+    <link rel="shortcut icon" href="https://iconarchive.com/download/i96376/iconsmind/outline/Internet.ico">
+    <script name="jquery" type="text/javascript" src="/cdn/lib/js/jquery-3.6.0.min.js"></script>
+    <script name="required" type="text/javascript" src="/cdn/js/required.js"></script>
+    <script name="gen-links" type="text/javascript" src="/cdn/js/genLinks.js"></script>
+  </head>
+  <body>
+    <noscript class="err-msg">Sorry, please enable JavaScript to have this site function properly. Thank You! :)</noscript>
+    <h1 class="centered">Cite a book</h1>
+    <div id="links"></div>
+	<br>
+    <form id="cite-form" class="centered">
+		<label>Name(s): </label>
+		<input id="names" style="width: 35%;" placeholder="Doe, John | or | Doe, John, and Doe, Jane | for three or more authors, | Doe, John, et al"><br><br>
+		<label>Book/artical name: </label><input id="bname" placeholder="Da Bloody Civil War" style="width: 35%;"><br><br>
+		<label>Publisher: </label><input id="pbsher" placeholder="Dumb books Inc | (No period)"><br><br>
+		<label>Year published: </label><input id="year" placeholder="2121"><br><br><br>
+		<button type="submit">Cite (Not perfect)</button><br><br>
+		<div style="left: 15%; position: absolute;background-color:white;width: 75%;height: 5%; box-shadow: 2px 2px 5px black;border-radius: 8px;padding: 15px;"><h2 id="cited" style="color: black;">Doe, John. Da Bloody Civil War. Dumb Books Inc, 2121.</h2></div>
+	</form>
+	<script type="text/javascript">
+		$("[type=submit]").click(function(e) {
+			e.preventDefault();
+			$("#cited").text($("#names").val() + ". " + $("#bname").val() + ". " + $("#pbsher").val() + ", " + $("#year").val() + ".");
+		});
+	</script>
+  </body>
+</html>
