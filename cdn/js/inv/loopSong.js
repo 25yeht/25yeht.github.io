@@ -12,7 +12,8 @@ if(document.getElementsByName("jquery")[0]) {
 			"skyhigh": "/cdn/audio/elekskhi.mp3",
 			"sunburst": "/cdn/audio/Tobu & Itro - Sunburst.mp3",
 			"energy": "/cdn/audio/Elektronomia_Energy_NCS_Release.mp3",
-			"limitless": "/cdn/audio/music/limitless_Elektronomia.mp3"
+			"limitless": "/cdn/audio/music/limitless_Elektronomia.mp3",
+			"symbolism": "/cdn/audio/music/symbolism_Electro-Light_NCS_Release.mp3"
 		};
         $("#play").click(() => {
 			if($("#url").val()) {
