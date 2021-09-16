@@ -11,7 +11,8 @@ if(document.getElementsByName("jquery")[0]) {
 			"sky high": "/cdn/audio/elekskhi.mp3",
 			"skyhigh": "/cdn/audio/elekskhi.mp3",
 			"sunburst": "/cdn/audio/Tobu & Itro - Sunburst.mp3",
-			"energy": "/cdn/audio/Elektronomia_Energy_NCS_Release.mp3"
+			"energy": "/cdn/audio/Elektronomia_Energy_NCS_Release.mp3",
+			"limitless": "/cdn/audio/music/limitless_Elektronomia.mp3"
 		};
         $("#play").click(() => {
 			if($("#url").val()) {
