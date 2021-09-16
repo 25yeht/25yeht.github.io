@@ -31,8 +31,8 @@ if(document.getElementsByName("jquery")[0]) {
 				try {
 					$("#easy-notepad").val(localStorage.getItem("notepad-save"));
 					if(new URL(location.href + location.search).searchParams.get("cited")) {
-						$("#notepad-container").append("<button id='back'>Back to citation</button>");
-						$("#back").click(function() {
+						var $oHash = $("#notepad-container").append("<button id='back'>Back to citation</button>");
+						$oHash.click(function() {
 							history.back();
 						});
 					}
