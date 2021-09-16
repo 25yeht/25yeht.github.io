@@ -38,10 +38,6 @@
 	font-weight: normal;
 	font-style: normal;
 }
-h1{
-   font-family: 'proxima_nova_rgbold', Helvetica, Arial, sans-serif;
-   color: white;
-}
 body {
   font-family: 'Poppins', 'Source Sans Pro', Arial, Helvetica, sans-serif;
   padding: 10px;
@@ -49,11 +45,12 @@ body {
   background-color: rgb(20, 20, 30);
   background-attachment: fixed;
 }
-h2 {
-	font-family: 'proxima_nova_rgregular', sans-serif;
-	color: white;
+h1 , h2 {
+   font-family: 'proxima_nova_rgbold', Helvetica, Arial, sans-serif;
+   color: white;
 }
-h3 {
+h3, h4, h5, h6 {
+	font-family: 'proxima_nova_rgregular', sans-serif;
 	color: white;
 }
 span {
@@ -203,8 +200,8 @@ video {
 }
 button {
     font-size: 20px;
-    box-shadow: 2px 2px 5px black;
-    cursor: pointer;
+	box-shadow: 2px 2px 5px black;
+	cursor: pointer;
 }
 .lbl-aft {
 	position: relative;
