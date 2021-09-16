@@ -30,7 +30,7 @@ if(document.getElementsByName("jquery")[0]) {
 			if(localStorage.getItem("notepad-save") && typeof localStorage.getItem("notepad-save") == "string") {
 				try {
 					$("#easy-notepad").val(localStorage.getItem("notepad-save"));
-					if(new URL(location.href).searchParams.get("cited")) {
+					if(new URL(location.href + location.search).searchParams.get("cited")) {
 						$("#notepad-container").append("<button id='back'>Back to citation</button>");
 						$("#back").click(history.back);
 					}
