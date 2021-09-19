@@ -62,6 +62,7 @@ $(document).ready(function() {
 				if($t25yehtGithubIoAudio) {
 					try{
 						$t25yehtGithubIoAudio.remove();
+						t25yehtPluginDetectorFaded = true;
 					} catch(error) {
 						alert("There was an error allowing the extension! Error: " + error);
 						clearInterval(t25yeht_PPLSPluginDetectionInterval);
