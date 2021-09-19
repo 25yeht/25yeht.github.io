@@ -1,3 +1,4 @@
+var t25yehtPluginDetectorFaded = false;
 $(document).ready(function() {
 	//Define song variables
 	var name = "Symbolism";
@@ -54,7 +55,6 @@ $(document).ready(function() {
 		});
     });
 	//Detect 25yeht PPLS plugin
-	var t25yehtPluginDetectorFaded = false;
 	var canChangeTitle = true;
 	var t25yeht_PPLSPluginDetectionInterval = setInterval(_ => {
 		if(this) {
