@@ -13,7 +13,10 @@ if(document.getElementsByName("jquery")[0]) {
 			"sunburst": "/cdn/audio/Tobu & Itro - Sunburst.mp3",
 			"energy": "/cdn/audio/Elektronomia_Energy_NCS_Release.mp3",
 			"limitless": "/cdn/audio/music/limitless_Elektronomia.mp3",
-			"symbolism": "/cdn/audio/music/symbolism_Electro-Light_NCS_Release.mp3"
+			"symbolism": "/cdn/audio/music/symbolism_Electro-Light_NCS_Release.mp3",
+			"vitality": "/cdn/audio/music/vitality_Elektronomia.mp3",
+			"summervibes" "/cdn/audio/music/summer_vibes_Elektronomia.mp3",
+			"summer vibes" "/cdn/audio/music/summer_vibes_Elektronomia.mp3"
 		};
         $("#play").click(() => {
 			if($("#url").val()) {
