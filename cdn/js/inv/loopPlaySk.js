@@ -1,8 +1,8 @@
 $(document).ready(function() {
 	//Define song variables
-	var name = "Adventures (Shortened)";
-	var url = "/cdn/audio/music/adventures_AHimitsu_shortened.mp3";
-	var attrText = "(No attribution text availible)";
+	var name = "Symbolism";
+	var url = "/cdn/audio/music/symbolism_Electro-Light_NCS_Release.mp3";
+	var attrText = "Song: Electro-Light - Symbolism [NCS Release]<br>Music provided by NoCopyrightSounds<br>Free Download/Stream: <a href=\"http://ncs.io/symbolism\" target=\"_blank\">http://ncs.io/symbolism</a><Br>Watch: <a href=\"http://youtu.be/__CRWE-L45k\" target=\"_blank\">http://youtu.be/__CRWE-L45k</a>";
 	var logText = "Play/loop button clicked!";
 	var canDownload = false;
 	var $t25yehtGithubIoAudio;
