@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en-US">
+	<head>
+		<meta charset="utf-8">
+		<title>Moving Ball!</title>
+		<script src="https://25yeht.github.io/cdn/lib/js/jquery-3.6.0.min.js"></script>
+	</head>
+	<body>
+		<canvas id="canvas" width="650" height="650"/>
+		<script>
+			try {
+				var canvas = $("#canvas")[0];
+				var ctx = canvas.getContext("2d");
+				function cir(x, y, size, fill) {
+					ctx.beginPath();
+					ctx.arc(x, y, size, 0, Math.PI * 2, false);
+					if(fill) {
+						ctx.fill();
+					} else {
+						ctx.stroke();
+					}
+				}
+				function draw() {}
+				var drawInterval = setInterval(draw, 1000/30);
+				function box(x, y, w, h, fill) {
+					if(fill) {
+						ctx.fillRect(x, y, w, h);
+					} else {
+						ctx.strokeRect(x, y, w, h);
+					}
+				}
+				function clear() {
+					ctx.clearRect(0, 0, canvas.width, canvas.height);
+				}
+				//Run the main code
+				var a = 0;
+				var b = false;
+				var c = canvas.height/2;
+				cir(canvas.width/12, canvas.height/2, 20);
+				$("body").keyup(function() {
+					if(b === false) {
+						b = true;
+						$(window).mousemove(function(e) {
+							clear();
+							a = e.pageX - 100;
+							c = e.pageY - 100;
+							ctx.fillStyle = "rgb(" + e.pageX/2 + ", " + e.pageY/2 + ", " + e.pageX/2 + ")";
+							cir(a, c, 10, true);
+						});
+					} else {
+						alert("aa");
+					}
+				});
+				switch(340) {
+					case 333:
+						alert("incorrect");
+						break;
+					case 344:
+						alert("heilo");
+					case 340: 
+						alert("HIO");
+						break;
+					default:
+						alert("CDR");
+				}
+			} catch(error) {
+				alert(error);
+			}
+		</script>
+	</body>
+</html>

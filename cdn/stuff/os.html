@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en-US">
+	<head>
+		<meta charset="utf-8">
+		<title>OH ESS</title>
+		<style>
+			html {
+				cursor: progress;
+			}
+			@-webkit-keyframes hide-window {
+				to {
+					top: -650px;
+					left: -650px;
+				}
+			}
+			@-webkit-keyframes start-window {
+				from {
+					top: -100px;
+					left: -100px;
+				}
+				to {
+					top: 100px;
+					left: 100px;
+				}
+			}
+			@-webkit-keyframes start-window-2 {
+				from {
+					top: -100px;
+					left: -100px;
+				}
+				to {
+					top: 150px;
+					left: 850px;
+				}
+			}
+			body {
+				font-family: arial, helvetica, sans-serif;
+				text-align: center;
+				color: white;
+				padding: 0px;
+				background-color: white;
+			}
+			html {
+				padding: 0px;
+			}
+			.window {
+				width: 650px;
+				height: 400px;
+				background-color: rgb(20, 20, 20);
+				border-color: rgb(75, 75, 75);
+				border-width: 12px;
+				left: 100px;
+				top: 100px;
+				position: absolute;
+				animation: start-window ease-in-out 0.3s;
+				box-shadow: 2px 2px 5px black;
+				resize: both;
+				overflow: auto;
+			}
+			.window-2 {
+				width: 650px;
+				height: 400px;
+				background-color: rgb(20, 20, 20);
+				border-color: rgb(75, 75, 75);
+				border-width: 12px;
+				left: 100px;
+				top: 100px;
+				position: absolute;
+				animation: start-window-2 ease-in-out 0.3s;
+				box-shadow: 2px 2px 5px black;
+				resize: both;
+			}
+			.top-bar {
+				width: 100%;
+				height: 25px;
+				background-color: rgb(75, 75, 75);
+				cursor: default;
+			}
+			.top-bar:active {
+				cursor: grabbing;
+			}
+			.close {
+				left: 96%;
+				background-color: red;
+				width: 18px;
+				height: 18px;
+				top: 3px;
+				position: relative;
+				cursor: default;
+			}
+			.close:active {
+				background-color: salmon;
+			}
+			.close {
+				cursor: pointer;
+			}
+			iframe {
+				height: 100%;
+				width: 100%;
+			}
+			.main {
+				overflow: auto;
+			}
+			label {
+				user-select: none;
+			}
+			input {
+				user-select: none;
+			}
+		</style>
+		<script src="https://25yeht.github.io/cdn/lib/js/jquery-3.6.0.min.js"></script>
+	</head>
+	<body>
+		<div id="window-1" class="window">
+			<label>
+			<div id="bar-1" class="top-bar">
+				<div id="close-1" class="close">X</div>
+			</div>
+				<div class="main">
+					<h1>I am a window.</h1><br>
+					<p>
+						Try experimenting with me.<br>
+						Press the red <span style="background-color: red">X</span> button to close me, <br>or pressing the <span style="background-color: grey; color: white;">Esc</span> key to close me.
+					</p><br><br>
+					<h2 id="r">Try clicking on the text field and then pressing a key!</h2><br>
+					<input id="t" type="text" maxlength="1"><br><br><br><br>
+					<button id="f">Click me to enter fullscreen on this window!</button><br><br>
+				</div>
+			</label>
+		</div>
+		<div id="window-2" class="window-2">
+			<label>
+				<div id="bar-2" class="top-bar">
+					<div id="close-2" class="close">X</div>
+				</div>
+				<div class="main">
+					<h1>Oh hi there! I'm another window!</h1>
+				</div>
+			</label>
+		</div>
+		<script>
+			//No pogess!!!!!!
+			var t3a = setTimeout(() => {
+				document.documentElement.style.cursor = "default";
+				clearTimeout(t3a);
+			}, 300);
+			//Gamepad support
+			var gpc = false;
+			window.addEventListener("gamepadconnected", e => {
+				if(!gpc) {
+					gpc = true;
+					document.body.requestPointerLock();
+					var g = e.gamepad;
+					alert("Gamepad detected! Name: " + g.id);
+					$(".close").css("cursor", "none");
+					var a = parseFloat($("#window-1").css("left"));
+					var b = parseFloat($("#window-1").css("top"));
+					var c = eval("-" + Math.abs(parseFloat($("#window-1").css("left"))));
+					var d = eval("-" + Math.abs(parseFloat($("#window-1").css("top"))));
+					var gpInt = setInterval(() => {
+						$("body")[0].requestPointerLock();
+						document.documentElement.requestFullscreen();
+						$(".top-bar").css("cursor", "none");
+						if(navigator.webkitGetGamepads) {
+							var gp = navigator.webkitGetGamepads()[0];
+						} else {
+							var gp = navigator.getGamepads()[0];
+						}
+
+						if(gp.axes[0] != 0) {
+							b -= gp.axes[0];
+						} else if(gp.axes[1] != 0) {
+							a += gp.axes[1];
+						} else if(gp.axes[2] != 0) {
+							c += gp.axes[2];
+						} else if(gp.axes[3] != 0) {
+							d -= gp.axes[3];
+						} else if(gp.buttons[4].pressed) {
+							a += 1;
+						}
+						if(b*3 < 0) {
+							$("#window-1")[0].style.left = Math.abs(b*3) + "px";
+						} else {
+							$("#window-1")[0].style.left = eval("-" + b*3) + "px"
+						}
+						$("#window-1")[0].style.top = a*3 + "px";
+						if(gp.buttons[0].pressed) {
+							if(ex) {
+								if(confirm("Are you sure to close this window?")) {
+									ex = false;
+									$("#window-1").css("animation", "hide-window ease-in-out 0.5s");
+									var t1 = setTimeout(() => {
+										$("#window-1").remove();
+										clearTimout(t1);
+									}, 299);
+								}
+							}
+						}
+					}, 0);
+				} else {
+					alert("Gamepad reconnected!");
+				}
+			});
+			window.addEventListener("gamepaddisconnected", e => {
+				alert("Gamepad disconnected!");
+				$("html").css("cursor", "default");
+				$("label").css("cursor", "default");
+				$(".top-bar").css("cursor", "default");
+				$(".close").css("cursor", "default");
+				clearInterval(gpInt);
+				document.exitPointerLock();
+			});
+			//First window
+			var ex = true;
+			var a = "#window-1";
+			var b = "#bar-1";
+			var c = "#close-1";
+			$(a).css({
+				top: "100px",
+				left: "100px"
+			});
+			$(a).mousedown(() => {
+				$(a).css("z-index", "1");
+				$(a2).css("z-index", "-1")
+			});
+			var mouseDownOnX = false;
+			var mouseDownOnWindow = false;
+			$(c).mousedown(() => {
+				mouseDownOnX = true;
+			});
+			$(b).mousedown(() => {
+				mouseDownOnWindow = true;
+			});
+			$(window).mouseup(() => {
+				mouseDownOnWindow = false;
+				mouseDownOnX = false;
+			});
+			$(window).mousemove(e => {
+				//alert(e.pageX);
+				if(mouseDownOnWindow && e.pageX >= 325 && e.pageX <= window.outerWidth - 335 && !mouseDownOnX) {
+					$(a).css("left", (e.pageX - 325) + "px");
+				}
+				if(mouseDownOnWindow && e.pageY >= 12.5 && e.pageY <= window.outerHeight - 490 && !mouseDownOnX) {
+					$(a).css("top", (e.pageY - 14) + "px");
+				}
+			});
+			$(c).click(() => {
+				if(ex) {
+					if(confirm("Are you sure to close this window?")) {
+						ex = false;
+						$(a).css("animation", "hide-window ease-in-out 0.5s");
+						var t1 = setTimeout(() => {
+							$(a).remove();
+							clearTimout(t1);
+						}, 299);
+					}
+				}
+			});
+			$(window).keyup(e => {
+				if(e.keyCode == 27 && ex) {
+					if(confirm("Are you sure you want to close this window?")) {
+						ex = false;
+						$(a).css("animation", "hide-window ease-in-out 0.5s");
+						var t1 = setTimeout(() => {
+							$(a).remove();
+							clearTimout(t1);
+						}, 299);
+					}
+				}
+			});
+			$("#t").keyup(e => {
+				$("#r").text("The key code (used in computer science) was " + e.keyCode + "!");
+			});
+			//Second window
+			var ex2 = true;
+			var a2 = "#window-2";
+			var b2 = "#bar-2";
+			var c2 = "#close-2";
+			$(a2).css({
+				top: "150px",
+				left: "850px"
+			});
+			$(a2).mousedown(() => {
+				$(a2).css("z-index", "1");
+				$(a).css("z-index", "-1")
+			});
+			//Stuff
+			var mouseDownOnX2 = false;
+			var mouseDownOnWindow2 = false;
+			$(c2).mousedown(() => {
+				mouseDownOnX2 = true;
+			});
+			$(b2).mousedown(() => {
+				mouseDownOnWindow2 = true;
+			});
+			$(window).mouseup(() => {
+				mouseDownOnWindow2 = false;
+				mouseDownOnX2 = false;
+			});
+			//Mousemove
+			$(window).mousemove(e => {
+				//alert(e.pageX);
+				if(mouseDownOnWindow2 && e.pageX >= 325 && e.pageX <= window.outerWidth - 335 && !mouseDownOnX2) {
+					$(a2).css("left", (e.pageX - 325) + "px");
+				}
+				if(mouseDownOnWindow2 && e.pageY >= 12.5 && e.pageY <= window.outerHeight - 490 && !mouseDownOnX2) {
+					$(a2).css("top", (e.pageY - 14) + "px");
+				}
+			});
+			//Close button
+			$(c2).click(() => {
+				if(ex2) {
+					if(confirm("Are you sure to close this window?")) {
+						ex2 = false;
+						$(a2).css("animation", "hide-window ease-in-out 0.5s");
+						var t1 = setTimeout(() => {
+							$(a2).remove();
+							clearTimout(t1);
+						}, 299);
+					}
+				}
+			});
+			var fullscreenError = false;
+			var fullscreen = false;
+			//Fullscreen
+			$("#f").click(() => {
+				try {
+					fullscreen = !fullscreen;
+					if(fullscreen || ($("#window-1").width() != $(window).width() && $("#window-1").height() != $(window).height() && !fullscreenError)) {
+						$("#window-1")[0].requestFullscreen();
+						$("#f").text("Exit full screen");
+						fullscreen = true;
+					} else if(!fullscreenError){
+						document.exitFullscreen();
+						$("#f").text("Enter full screen");
+						fullscreen = false;
+					}
+				} catch(error) {
+					$("#f").text("An error occured! " + error);
+					fullscreenError = true;
+				}
+			});
+		</script>
+	</body>
+</html>

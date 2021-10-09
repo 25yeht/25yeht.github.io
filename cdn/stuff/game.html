@@ -1,0 +1,633 @@
+<!DOCTYPE html>
+<html lang="en-US">
+	<head>
+		<meta charset="utf-16">
+		<title>Document editor (HTML)</title>
+		<script src="https://25yeht.github.io/cdn/lib/js/jquery-3.6.0.min.js"></script>
+		<script src="https://math.afficienta.com/static/bower_components/jquery-ui/jquery-ui.min.js"></script>
+		<style>
+			body {
+				text-align: center;
+				display: none;
+			}
+			#ldt {
+				width: 500px;
+			}
+			body {
+				font-family: arial, helvetica, sans-serif;
+			}
+			input {
+				text-align: center;
+			}
+			#dc-nm {
+				font-size: 25px;
+				width: 500px;
+			}
+			#container {
+				text-align: center;
+				overflow: scroll;
+				position: relative;
+				left: 26%;
+				border-color: black;
+				border-width: 1px;
+				border: groove;
+				overflow-x: hidden;
+				user-select: none;
+			}
+			textarea:focus {
+				border-color: blue;
+			}
+			#bxw {
+				width: 60px;
+			}
+			#bxh {
+				width: 60px;
+			}
+			img {
+				-webkit-user-drag: none;
+				-khtml-user-drag: none;
+				-moz-user-drag: none;
+				-o-user-drag: none;
+				user-drag: none;
+			}
+			textarea {
+				font-family: arial, helvetica, sans-serif;
+			}
+		</style>
+	</head>
+	<body>
+		<input id="dc-nm" type="text" placeholder="Document name here" value="Untitled Document"><br><br>
+		<div id="container">
+			<div id="document">
+				<h2 class='heading' id='start'>You can start editing me! (Press X and click me to delete.)</h2>
+			</div>
+		</div><div id="controls>"><br>
+		<input id="i" type="text" placeholder="Type in some text...">
+		<span> Alignment: </span>
+		<select id="align-sel">
+			<option value="center">Middle</option>
+			<option value="left">Left</option>
+			<option value="right">Right</option>
+			<option value="justify">Justify</option>
+		</select><span> Type: </span>
+		<select id="type">
+			<option value="h1">Heading</option>
+			<option value="h2">Subheading</option>
+			<option value="p">Paragraph</option>
+			<option value="br">Line break</option>
+		</select>
+		<button id="create">Create</button>
+		
+		<br><br>
+		<button id="br">Line break</button><button id="nbx">New box</button><input id="bxw" type="number" placeholder="Width" value="343"><input id="bxh" type="number" placeholder="Height" value="343">
+		<span> Color: </span>
+		<select id="bxc">
+			<option value="black">Black</option>
+			<option value="beige">Beige</option>
+			<option value="brown">Brown</option>
+			<option value="gray">Gray</option>
+			<option value="grey">Grey</option>
+			<option value="lightgray">Light gray</option>
+			<option value="lightgrey">Light grey</option>
+			<option value="red">Red</option>
+			<option value="salmon">Salmon</option>
+			<option value="pink">Pink</option>
+			<option value="orange">Orange</option>
+			<option value="yellow">Yellow</option>
+			<option value="lightblue">Light blue</option>
+			<option value="skyblue">Sky blue</option>
+			<option value="blue">Blue</option>
+			<option value="lightgreen">Light green</option>
+			<option value="green">Green</option>
+			<option value="purple">Purple</option>
+			<option value="white">White</option>
+			<option value="rgb(255, 253, 254)">Lilly White</option>
+		</select>
+		
+		<br>
+		
+		<br>
+		<button id="ncs">New stroke circle</button><button id="c">Clear</button><button id="save">Save</button><button id="print">Print</button>
+		<br><br>
+		
+		<select id="bc">
+			<option value="white" id="dis">Choose a background color...</option>
+			<option value="black">Black</option>
+			<option value="beige">Beige</option>
+			<option value="brown">Brown</option>
+			<option value="gray">Gray</option>
+			<option value="grey">Grey</option>
+			<option value="lightgray">Light gray</option>
+			<option value="lightgrey">Light grey</option>
+			<option value="red">Red</option>
+			<option value="salmon">Salmon</option>
+			<option value="pink">Pink</option>
+			<option value="orange">Orange</option>
+			<option value="yellow">Yellow</option>
+			<option value="lightblue">Light blue</option>
+			<option value="skyblue">Sky blue</option>
+			<option value="blue">Blue</option>
+			<option value="lightgreen">Light green</option>
+			<option value="green">Green</option>
+			<option value="purple">Purple</option>
+			<option value="white">White</option>
+			<option value="rgb(255, 253, 254)">Lilly White</option>
+		</select><input id="bk-url" type="url" placeholder="Enter a background URL."><button id="set-bk">Set</button>
+		
+		<br><br>
+		
+		<input id="ldt" type="text" placeholder="Enter the code you copied and paste it in here."><button id="ld">Load</button>
+		
+		<br><br>
+		
+		<input id="url" type="url" placeholder="Enter URL/Pathname" value="https://">
+		<span> Size: </span>
+		<select id="img-size">
+			<option value="1000">1000</option>
+			<option value="750">750</option>
+			<option value="500">500</option>
+			<option value="250">250</option>
+			<option value="175">175</option>
+			<option value="150">150</option>
+			<option value="100">100</option>
+			<option value="75">75</option>
+			<option value="50">50</option>
+			<option value="25">25</option>
+		</select>
+		
+		<button id="ni">Create as image</button>
+		<br>
+		<span id="sv"></span><br><br>
+		<span id="svy"/>
+		</div>
+		<script onerror="alert('An error occured!');">
+			try {
+				window.onbeforeunload = () => {
+					return "Careful! You have unsaved work!";
+				}
+				var printing = false;
+				var idle = false;
+				var x = false;
+				var m = false;
+				$(window).keydown(e => {
+					if(e.keyCode == 88) {
+						x = true;
+					} else if(e.keyCode == 77) {
+						m = true;
+					}
+				});
+				$(window).keyup(e => {
+					if(e.keyCode == 88) {
+						x = false;
+					} else if(e.keyCode == 77) {
+						m = false;
+					}
+				});
+				$("#bc").mousedown(() => {
+					$("#dis").attr("disabled", true);
+				});
+				var md = false;
+				$(window).mousedown(() => {
+					md = true;
+				});
+				$(window).mouseup(() => {
+					md = false;
+				});
+				$("#document").css({
+					border: "10px black",
+					textAlign: "center"
+				});
+				setInterval(() => {
+					if(!printing) {
+						$("#document").width(900);
+						$("#container").width(900);
+					} else {
+						$("#document").width($(window).width());
+						$("#container").width($(window).width());
+					}
+					$("#container").height($(window).height() - ($(window).height()/2.4));
+				}, 0);
+				var does = [$("#start").css("cursor", "move").draggable().click(() => {
+						if(x) {
+							$("#start").remove();
+							does.splice(does.indexOf($("#start")));
+						}
+					}), $("full-page").css("cursor", "move").draggable().click(() => {
+						if(x) {
+							$("#full-page").remove();
+							does.splice(does.indexOf($("#full-page")));
+						}})];
+				var els = 0;
+				var align = "center";
+				//Clear document
+				$("#c").click(() => {
+					if(confirm("Are you sure to clear this document?")) {
+						window.onbeforeunload = null;
+						window.location.reload();
+					}
+				});
+				//New element/text
+				$("#create").click(() => {
+					var abi = $("<" + $("#type").val() + ">").html($("#i").val()).css("text-align", $("#align-sel").val()).addClass("dag").appendTo("#document").css("cursor", "move").draggable().addClass("vgdecJd83Jdpwk");
+					does.push(abi);
+					abi.click(() => {
+						if(x) {
+							abi.remove();
+						}
+					});
+					abi.dblclick(e => {
+						if(!idle) {
+							idle = true;
+							var abie = $("<input>").val(abi.html()).css({
+								left: e.pageX + "px",
+								top: e.pageY + "px",
+								position: "absolute"
+							}).addClass("jqcodeeryabi").appendTo("body").select();
+							var abif = $("<select>").html(`
+<option value="black">Black</option>
+			<option value="beige">Beige</option>
+			<option value="brown">Brown</option>
+			<option value="gray">Gray</option>
+<option value="grey">Grey</option>
+			<option value="lightgray">Light gray</option>
+			<option value="lightgrey">Light grey</option>
+<option value="red">Red</option>
+			<option value="salmon">Salmon</option>
+			<option value="pink">Pink</option>
+			<option value="orange">Orange</option>
+			<option value="yellow">Yellow</option>
+			<option value="lightblue">Light blue</option>
+			<option value="skyblue">Sky blue</option>
+			<option value="blue">Blue</option>
+			<option value="lightgreen">Light green</option>
+			<option value="green">Green</option>
+			<option value="purple">Purple</option>
+			<option value="white">White</option>
+			<option value="rgb(255, 253, 254)">Lilly White</option>
+`).addClass("jqcodeeryabi").css({
+								position: "absolute",
+								left: (e.pageX + 215) + "px",
+								top: e.pageY + "px"
+							}).appendTo("body");
+							var abig = $("<button>Dismiss</button>").click(() => {
+								abi.text(abie.val());
+								abi.css("color", abif.val())
+								abie.remove();
+								abif.remove();
+								abig.remove();
+								idle = false;
+							}).addClass("jqcodeeryabi").css({
+								position: "absolute",
+								left: (e.pageX + 325) + "px",
+								top: e.pageY + "px"
+							}).appendTo("body");
+							$(window).keyup(e => {
+								if(e.keyCode == 13) {
+									abi.text(abie.val());
+									abi.css("color", abif.val())
+									abie.remove();
+									abif.remove();
+									abig.remove();
+									idle = false;
+								}
+							});
+						}
+						});
+					});
+				//New image
+				$("#ni").click(() => {
+					var abi = $("<img>").attr("src", $("#url").val()).attr("alt", "image").width($("#img-size").val()).appendTo("#document").css("cursor", "move").css("user-drag", "none").draggable().addClass("vgdecJd83Jdpwk");
+					abi.click(() => {
+						if(x) {
+							abi.remove();
+						}
+					});
+					try {
+						abi.dblclick(e => {
+							idle = true;
+							var abie = $("<input>").attr("type", "number").attr("placeholder", "Radius").css({
+								position: "absolute",
+								left: e.pageX + "px",
+								top: e.pageY + "px",
+								width: "75px"
+							}).val(abi.css("border-radius").replace("px", "")).addClass("jqcodeeryabi").appendTo("body");
+							var abif = $("<input>").attr("type", "text").attr("placeholder", "Size").css({
+								position: "absolute",
+								left: (e.pageX + 85) + "px",
+								top: e.pageY + "px",
+								width: "75px"
+							}).val(abi.width()).addClass("jqcodeeryabi").appendTo("body");
+							var abig = $("<button>").text("Dismiss").css({
+								position: "absolute",
+								left: (e.pageX + 170) + "px",
+								top: e.pageY + "px"
+							}).click(() => {
+								abi.css("border-radius", abie.val().replaceAll("px", "") + "px");
+								abi.width(abif.val());
+								$(".jqcodeeryabi").remove();
+							}).addClass("jqcodeeryabi").appendTo("body");
+							$(window).keyUp(e => {
+								if(e.keyCode == 13) {
+									abi.css("border-radius", abie.val().replaceAll("px", "") + "px");
+									abi.width(abif.val());
+									$(".jqcodeeryabi").remove();
+									idle = false;
+								}
+							});
+						
+					});
+					} catch(error) {
+						alert(error);
+					}
+				});
+				//Save document
+				$("#save").click(() => {
+					$("#sv").html("<br>Copy this!");
+					$("#svy").text($("#container").html().replace("overflow: scroll;", "").replaceAll("ui-draggable-handle", "").replaceAll("ui-draggable", "").replace("class='heading' id='start'", ""))[0].scrollIntoView();
+				});
+				//New box
+				$("#nbx").click(() => {
+					var abi = $("<div>").width($("#bxw").val()).height($("#bxh").val()).css("background-color", $("#bxc").val()).css("cursor", "move").appendTo("#document").draggable().addClass("vgdecJd83Jdpwk");
+					does.push(abi);
+					abi.click(() => {
+						if(x) {
+							abi.remove();
+						}
+					});
+					abi.dblclick(e => {
+						if(!idle) {
+							idle = true;
+							var abie = $("<input>").val(abi.text()).css({
+								left: e.pageX + "px",
+								top: e.pageY + "px",
+								position: "absolute"
+							}).addClass("jqcodeeryabi").appendTo("body").select();
+							var abif = $("<select>").html(`
+<option value="black">Black</option>
+			<option value="beige">Beige</option>
+			<option value="brown">Brown</option>
+			<option value="gray">Gray</option>
+<option value="grey">Grey</option>
+			<option value="lightgray">Light gray</option>
+			<option value="lightgrey">Light grey</option>
+<option value="red">Red</option>
+			<option value="salmon">Salmon</option>
+			<option value="pink">Pink</option>
+			<option value="orange">Orange</option>
+			<option value="yellow">Yellow</option>
+			<option value="lightblue">Light blue</option>
+			<option value="skyblue">Sky blue</option>
+			<option value="blue">Blue</option>
+			<option value="lightgreen">Light green</option>
+			<option value="green">Green</option>
+			<option value="purple">Purple</option>
+			<option value="white">White</option>
+			<option value="rgb(255, 253, 254)">Lilly White</option>
+`).addClass("jqcodeeryabi").css({
+								position: "absolute",
+								left: (e.pageX + 215) + "px",
+								top: e.pageY + "px"
+							}).appendTo("body");
+							var abix = $("<input type='number'>").css({
+								left: (e.pageX + 315) + "px",
+								top: e.pageY + "px",
+								position: "absolute",
+								width: "75px"
+							}).attr("placeholder", "Radius").val(abi.css("border-radius")).addClass("jqcodeeryabi").appendTo("body");
+							var abig = $("<button>Dismiss</button>").click(() => {
+								abi.html(abie.val());
+								abi.css("background-color", abif.val())
+								abi.css("border-radius", abix.val() + "px");
+								abi.width(iabi.val());
+								abi.height(i2bi.val());
+								abie.remove();
+								abif.remove();
+								abig.remove();
+								abix.remove();
+								$(".jqcodeeryabi").remove();
+								idle = false;
+							}).addClass("jqcodeeryabi").css({
+								position: "absolute",
+								left: (e.pageX + 410) + "px",
+								top: e.pageY + "px"
+							}).appendTo("body");
+							var iabi = $("<input placeholder='Width' type='number'>").css({
+								position: "absolute",
+								left: e.pageX,
+								top: (e.pageY + 25) + "px",
+								width: "75px"
+							}).val(abi.width()).addClass("jqcodeeryabi").appendTo("body");
+							var i2bi = $("<input type='number' placeholder='Height'>").css({
+								position: "absolute",
+								left: (e.pageX + 95) + "px",
+								top: (e.pageY + 25) + "px",
+								width: "75px"
+							}).val(abi.height()).addClass("jqcodeeryabi").appendTo("body");
+							$(window).keyup(e => {
+								if(e.keyCode == 13) {
+									abi.html(abie.val());
+									abi.css("background-color", abif.val())
+									abi.css("border-radius", abix.val() + "px");
+									abi.width(iabi.val());
+									abi.height(i2bi.val());
+									abie.remove();
+									abif.remove();
+									abig.remove();
+									abix.remove();
+									$(".jqcodeeryabi").remove();
+									idle = false;
+								}
+							});
+						}
+					});
+				});
+				//Print document
+				$("#print").click(() => {
+					try {
+						alert("Tip: don't use images/boxes that are too dark to conserve ink!");
+						if($("#dc-nm").val().replaceAll(" ", "") != "") {
+							document.title = $("#dc-nm").val();
+						} else {
+							document.title = "Untitled Document";
+						}
+						printing = true;
+						var dcNm = $("#dc-nm").val();
+						var bhtml = $("body").html();
+						$("body").html($("#container").html());
+						$("body").css("height", "100%");
+						$("textarea").css("border-width", "0px");
+						print();
+						$("body").html(bhtml);
+						$("textarea").css("border-width", "1px");
+						document.title = "Document editor (HTML)";
+						$(".jqcodeeryabi").remove();
+						$(".vgdecJd83Jdpwk").draggable().click(() => {
+							if(x) {
+								$(this).remove();
+							}
+						});
+						for(var i = 0; document.getElementsByClassName("vgdecJd83Jdpwk")[i]; i++) {
+							let xo = i;
+							$(document.getElementsByClassName("vgdecJd83Jdpwk")[i]).click(() => {
+								if(x) {
+									document.getElementsByClassName("vgdecJd83Jdpwk")[xo].remove();
+								}
+								
+							});
+						}
+						$("#dc-nm").val(dcNm);
+						$("#bc").html(`<option value="white" id="dis">Choose a background color...</option>
+<option value="black">Black</option>
+			<option value="beige">Beige</option>
+			<option value="brown">Brown</option>
+			<option value="gray">Gray</option>
+<option value="grey">Grey</option>
+			<option value="lightgray">Light gray</option>
+			<option value="lightgrey">Light grey</option>
+			<option value="red">Red</option>
+			<option value="salmon">Salmon</option>
+			<option value="pink">Pink</option>
+			<option value="orange">Orange</option>
+			<option value="yellow">Yellow</option>
+			<option value="lightblue">Light blue</option>
+			<option value="skyblue">Sky blue</option>
+			<option value="blue">Blue</option>
+			<option value="lightgreen">Light green</option>
+			<option value="green">Green</option>
+			<option value="purple">Purple</option>
+			<option value="white">White</option>
+			<option value="rgb(255, 253, 254)">Lilly White</option>
+`);
+						printing = false;
+					} catch(error) {
+						alert("Unable to print! " + error);
+					}
+				});
+				//Load document
+				$("#ld").click(() => {
+					if(confirm("Are you sure to replace the contents of this document?")) {
+						$("#document").html("");
+						does = [];
+						els = -1;
+						$("#document").html($("#ldt").val());
+					}
+				});
+				//New circle/round div
+				$("#ncs").click(() => {
+					var abi = $("<div>").css({
+						width: "15px",
+						height: "15px",
+						border: "solid",
+						borderRadius: "100%",
+						borderWidth: "2px",
+						cursor: "move"
+					}).addClass("vgdecJd83Jdpwk").appendTo("#document").draggable();
+					abi.click(() => {
+						if(x) {
+							abi.remove();
+						}
+					});
+					abi.dblclick(e => {
+						if(!idle) {
+							idle = true;
+							var abie = $("<input>").val(abi.text()).css({
+								left: e.pageX + "px",
+								top: e.pageY + "px",
+								position: "absolute"
+							}).addClass("jqcodeeryabi").appendTo("body").select();
+							var abif = $("<select>").html(`
+<option value="black">Black</option>
+			<option value="beige">Beige</option>
+			<option value="brown">Brown</option>
+			<option value="gray">Gray</option>
+<option value="grey">Grey</option>
+			<option value="lightgray">Light gray</option>
+			<option value="lightgrey">Light grey</option>
+<option value="red">Red</option>
+			<option value="salmon">Salmon</option>
+			<option value="pink">Pink</option>
+			<option value="orange">Orange</option>
+			<option value="yellow">Yellow</option>
+			<option value="lightblue">Light blue</option>
+			<option value="skyblue">Sky blue</option>
+			<option value="blue">Blue</option>
+			<option value="lightgreen">Light green</option>
+			<option value="green">Green</option>
+			<option value="purple">Purple</option>
+			<option value="white">White</option>
+			<option value="rgb(255, 253, 254)">Lilly White</option>
+`).addClass("jqcodeeryabi").css({
+								position: "absolute",
+								left: (e.pageX + 215) + "px",
+								top: e.pageY + "px"
+							}).appendTo("body");
+							var abix = $("<input type='number'>").css({
+								left: (e.pageX + 315) + "px",
+								top: e.pageY + "px",
+								position: "absolute",
+								width: "75px"
+							}).attr("placeholder", "Radius").val(abi.css("border-radius")).addClass("jqcodeeryabi").appendTo("body");
+							var abig = $("<button>Dismiss</button>").click(() => {
+								abi.html(abie.val());
+								abi.css("border-color", abif.val())
+								abi.css("border-radius", abix.val() + "px");
+								abi.width(iabi.val());
+								abi.height(i2bi.val());
+								abie.remove();
+								abif.remove();
+								abig.remove();
+								abix.remove();
+								$(".jqcodeeryabi").remove();
+								idle = false;
+							}).addClass("jqcodeeryabi").css({
+								position: "absolute",
+								left: (e.pageX + 410) + "px",
+								top: e.pageY + "px"
+							}).appendTo("body");
+							var iabi = $("<input placeholder='Width' type='number'>").css({
+								position: "absolute",
+								left: e.pageX,
+								top: (e.pageY + 25) + "px",
+								width: "75px"
+							}).val(abi.width()).addClass("jqcodeeryabi").appendTo("body");
+							var i2bi = $("<input type='number' placeholder='Height'>").css({
+								position: "absolute",
+								left: (e.pageX + 95) + "px",
+								top: (e.pageY + 25) + "px",
+								width: "75px"
+							}).val(abi.height()).addClass("jqcodeeryabi").appendTo("body");
+							$(window).keyup(e => {
+								if(e.keyCode == 13) {
+									abi.html(abie.val());
+									abi.css("border-color", abif.val())
+									abi.css("border-radius", abix.val() + "px");
+									abi.width(iabi.val());
+									abi.height(i2bi.val());
+									abie.remove();
+									abif.remove();
+									abig.remove();
+									abix.remove();
+									$(".jqcodeeryabi").remove();
+									idle = false;
+								}
+							});
+						}
+					});
+				});
+				//Change background
+				$("#set-bk").click(() => {
+					if($("#bk-url").val().replaceAll(" ", "") != "") {
+						$("#document").css("background", "url(" + $("#bk-url").val()) + ")";
+						$("#container").css("background","url(" + $("#bk-url").val() + ")");
+					} else {
+						$("#document").css("background", $("#bc").val());
+						$("#container").css("background", $("#bc").val());
+					}
+				});
+				$("body").css("display", "block");
+			} catch(error) {
+				alert(error);
+			}
+		</script>
+	</body>
+</html>

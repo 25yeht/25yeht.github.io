@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en-US">
+	<head>
+		<meta charset="utf-8">
+		<title>Gamepad Tester</title>
+		<script src="https://25yeht.github.io/cdn/lib/js/jquery-3.6.0.min.js"></script>
+		<style>
+			@-webkit-keyframes backs {
+				to {
+					top: 225px;
+					left: 255px;
+					width: 50px;
+					height: 50px;
+				}
+			}
+			@keyframes backs {
+				to {
+					top: 225px;
+					left: 255px;
+					width: 50px;
+					height: 50px;
+				}
+			}
+			#ball {
+				width: 50px;
+				height: 50px;
+				background-color: yellow;
+				border-radius: 100%;
+				box-shadow: 2px 2px 5px black;
+				position: fixed;
+			}
+		</style>
+	</head>
+	<body>
+		<h1 id="s">No gamepad connected...</h1>
+		<br>
+		<h2 id="m">Mapping: n/a</h2>
+		<br>
+		<h2 id="b0">Button 0: n/a</h2>
+		<h2 id="b1">Button 1: n/a</h2>
+		<h2 id="b2">Button 2: n/a</h2>
+		<h2 id="b3">Button 3: n/a</h2>
+		<h2 id="b4">Button 4: n/a</h2>
+		<h2 id="b5">Button 5: n/a</h2>
+		<h2 id="b6">Button 6: n/a</h2>
+		<h2 id="b7">Button 7: n/a</h2>
+		<h2 id="b8">Button 8: n/a</h2>
+		<h2 id="b9">Button 9: n/a</h2>
+		<br>
+		<h1>Axis</h1>
+		<br>
+		<h2 id="0">Horizontal (Axis 0): n/a</h2>
+		<h2 id="1">Vertical (Axis 1): n/a</h2>
+		<h2 id="2">Yaw (Axis 2): n/a</h2>
+		<div id="ball"/>
+		<script>
+			var gpInterval;
+			window.addEventListener("gamepadconnected", e => {
+				var a = 85;
+				var b = 75;
+				var w = 50;
+				var can = true;
+				alert("Gamepad connected! Name: " + e.gamepad.id);
+				$("#s").text(e.gamepad.id);
+				if(!e.gamepad.index > 0) {
+					if(navigator.webkitGetGamepads) {
+						var gp = navigator.webkitGetGamepads()[e.gamepad.index];
+					} else {
+						var gp = navigator.getGamepads()[e.gamepad.index];
+					}
+					gpInterval = setInterval(() => {
+						if(navigator.webkitGetGamepads) {
+							gp = navigator.webkitGetGamepads()[e.gamepad.index];
+						} else {
+							gp = navigator.getGamepads()[e.gamepad.index];
+						}
+						for(var i = 0; i < 10; i++) {
+							$("#b" + i).text("Button " + i + ": " + gp.buttons[i].pressed);
+						}
+						$("#0").text("Horizontal (Axis 0): " + gp.axes[0]);
+						$("#1").text("Vertical (Axis 1): " + gp.axes[1]);
+						$("#2").text("Yaw (Axis 2): " + gp.axes[2]);
+						$("#m").text("Mapping: " + gp.mapping);
+						if(can) {
+							if(gp.axes[0] != 0) {
+								a += gp.axes[0];
+								$("#ball").css("left", (a*3) + "px");
+							}
+							if(gp.axes[1] != 0) {
+								b += gp.axes[1];
+								$("#ball").css("top", (b*3) + "px");
+							}
+							if(gp.buttons[4].pressed) {
+								w -= 0.4 + w/250;
+								$("#ball").css({
+									width: w + "px",
+									height: w + "px"
+								});
+							}
+							if(gp.buttons[5].pressed) {
+								w += 0.4 + w/250;
+								$("#ball").css({
+									width: w + "px",
+									height: w + "px"
+								});
+							}
+						}
+						if(gp.buttons[0].pressed) {
+							can = false;
+							$("#ball").css("animation", "backs 0.8s ease-in-out");
+							var i93 = setTimeout(() => {
+								a = 85;
+								b = 75;
+								$("#ball").css("top", "225px");
+								$("#ball").css("left", "255px");
+								$("#ball").css("width", "50px");
+								$("#ball").css("height", "50px");
+								w = 50;
+								$("#ball").css("animation", "");
+								clearInterval(i93);
+							}, 788);
+							var i94 = setTimeout(_ => {
+								can = true;
+								clearInterval(i94);
+							}, 800);
+						}
+						$("#ball")[0].scrollIntoView();
+					},0);
+				} else {
+					alert("Only one gamepad allowed!");
+				}
+			});
+			addEventListener("gamepaddisconnected", e => {
+				alert("Gamepad disconnected! Name: " + e.gamepad.id);
+				location.reload();
+			});
+		</script>
+	</body>
+</html>

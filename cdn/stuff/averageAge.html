@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en-US">
+	<head>
+		<meta charset="utf-8">
+		<title>Average Age Counter</title>
+		<script src="https://25yeht.github.io/cdn/lib/js/jquery-3.6.0.min.js"></script>
+	</head>
+	<body>
+		<input id="a" type="text">
+		<button id="s">Add To List</button><button id="u">Clear List</button>
+		<br>
+		<br>
+		<button id="c">Calculate</button>
+		<br>
+		<br>
+		<div id="l"></div>
+		<br>
+		<br>
+		<div id="r">Press Calculate!</div>
+		<script>
+			var infs = [];
+			var sum = 0;
+			$("#s").click(function() {
+				if($("#a").val() !== "" && parseFloat($("#a").val()) || parseFloat($("#a").val()) === 0) {
+					infs.push(parseFloat($("#a").val()));
+					if($("#a").val() == "0") {
+						infs.push(0);
+					}
+					$("<span>").text($("#a").val() + " years old").appendTo("#l");
+					$("<br>").appendTo("#l");
+					$("#r").text("Press Calculate!");
+				} else {
+					$("#r").text("This is not a number!");
+				}
+			});
+			$("#c").click(function() {
+				if(!infs[0]) {
+					$("#r").text("List is empty!");
+				} else {
+					sum = 0;
+					for(var i = 0; infs[i]; i++) {
+						sum += infs[i];
+					}
+					$("#r").text("The average age is " + Math.round(sum/infs.length) + " years old");
+				}
+			});
+			$("#u").click(function() {
+				$("#l").html("");
+				infs = [];
+			});
+		</script>
+	</body>
+</html>

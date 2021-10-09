@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en-US">
+	<head>
+		<meta charset="utf-8">
+		<title>Treasure Map!</title>
+		<script name="jquery" src="https://25yeht.github.io/cdn/lib/js/jquery-3.6.0.min.js"></script>
+	</head>
+	<body>
+		<h1>Find the burried treasure!</h1>
+		<img src="/home/chronos/u-ead678c6f6d2938fedf9bff277c48aa041dbbd27/MyFiles/Code/haalaol.jpg" width="500" height="500">
+		<br>
+		<h3 id="la"></h3>
+		<script>
+			var ds = [];
+			var mouseX = 0;
+			var mouseY = 0;
+			var oX = 0;
+			var oY = 0;
+			var clicks = 0;
+			function gd(e, t) {
+				var dx = e.offsetX - t.x;
+				var dy = e.offsetY - t.y;
+				return Math.sqrt((dx * dx) + (dy * dy));
+			}
+			var t = {
+				x: Math.floor(Math.random() * 100) + 200,
+				y: Math.floor(Math.random() * 100) + 200
+			};
+			function gf(e, t) {
+				if(gd(e, t) <= 25) {
+					return "You win!";
+				} else if(gd(e, t) <= 50) {
+					return "Warm!";
+				} else if(gd(e, t) <= 100) {
+					return "Cold!";
+				} else if(gd(e, t) <= 150) {
+					return "Really cold!";
+				} else if(gd(e, t) <= 200) {
+					return "Freezing!";
+				} else {
+					return "Out of this world!";
+				}
+			}
+			$("img").click(function(e) {
+				ds.push(gd(e, t));
+				clicks++;
+				var sum = 0;
+				for(var i = 0; i < ds[i]; i++) {
+					sum += ds[i];
+				}
+				var a = gf(e, t);
+				if(a !== "You win!") {
+					$("#la").text(a + " You are " + Math.round(gd(e, t)) + " pixels away!");
+				} else {
+					$("#la").text(a);
+					if(clicks !== 1) {
+						alert("You won in " + clicks + " clicks! Score/Accuracy: " + Math.floor(sum/ds.length) + ". The lower the better!");
+					} else {
+						alert("You won in 1 click! Score/Accuracy: " + Math.floor(sum/ds.length) + ". The lower the better!");
+					}
+					clicks = 0;
+					t = {
+						x: Math.floor(Math.random() * 100) + 200,
+						y: Math.floor(Math.random() * 100) + 200
+					};
+					ds = [];
+					sum = 0;
+				}
+			});
+			$("body").mousemove(function(e) {
+				mouseX = e.pageX;
+				mouseY = e.pageY;
+				oX = e.offsetX;
+				oY = e.offsetY;
+			});
+			$("body").keyup(function(e) {
+				ds.push(gd({
+					offsetX: oX,
+					offsetY: oY
+				}, t));
+				if(e.keyCode == 13 || e.keyCode == 35 || e.keyCode == 45 || e.keyCode == 9 || e.keyCode == 32) {
+					clicks++;
+					var sum = 0;
+					for(var i = 0; i < ds[i]; i++) {
+						sum += ds[i];
+					}
+					var a = gf({
+						offsetX: oX,
+						offsetY: oY
+					}, t);
+					if(a !== "You win!") {
+						$("#la").text(a + " You are " + Math.round(gd({
+							offsetX: oX,
+							offsetY: oY
+						}, t)) + " pixels away!");
+					} else {
+						$("#la").text(a);
+						if(clicks !== 1) {
+							alert("You won in " + clicks + " clicks! Score/Accuracy: " + Math.floor(sum/ds.length) + ". The lower the better!");
+						} else {
+							alert("You won in 1 click! Score/Accuracy: " + Math.floor(sum/ds.length) + ". The lower the better!");
+						}
+						clicks = 0;
+						t = {
+							x: Math.floor(Math.random() * 100) + 200,
+							y: Math.floor(Math.random() * 100) + 200
+						};
+						ds = [];
+						sum = 0;
+					}
+				}
+			});
+		</script>
+	</body>
+</html>
