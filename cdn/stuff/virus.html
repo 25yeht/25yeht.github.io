@@ -124,10 +124,7 @@
 					} else {
 						document.getElementById("d-1").innerHTML = "<h1 style=\"text-align: center;top: 45%;\">Unlocking...</h1>";
 						var aCent = setTimeout(function() {
-							document.getElementById("d-1").innerHTML = "<h1 style=\"text-align: center;top: 45%;\">Unlocked!</h1><br><button onclick='close();' id='close' class='b' style='position: absolute; left: 50%;top: 50%;transform: translate(-50%, -50%);'>Close</button>";
-							document.getElementById("close").addEventListener("click", function() {
-								document.exitFullscreen();
-							});
+							document.getElementById("d-1").innerHTML = "<h1 style=\"text-align: center;top: 45%;\">Unlocked! Press the [ESC] key to exit.</h1>";
 							clearTimeout(aCent);
 						}, 3000);
 					}
