@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en-US">
+	<head>
+		<meta charset="utf-8">
+		<title>Random Unicode Character Generator</title>
+		<style>
+			* {
+				background-color: black;
+				color: lightgreen;
+				font-family: monospace;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="a">
+			<h1></h1><br><br>
+		</div>
+		<script type="text/javascript">
+			function getChar() {
+				return eval(`"\\u` + (Math.floor(Math.random() * 8999) + 1000) + `"`);
+			}
+			document.getElementsByTagName("h1")[0].textContent = getChar();
+			setInterval(_ => {
+				document.getElementById("a").innerHTML += getChar();
+			}, 0);
+		</script>
+	</body>
+</html>
