@@ -87,7 +87,7 @@ if(document.getElementsByName("jquery")[0]) {
         addLink("Afficient Video", "/fun/afficient/");
         addLink("Quiz!", "/fun/quiz/");
         addLink("A View Of My Website Design", "/fun/webpage-design/");
-        addLink("News", "/news/");
+        addLink("Flash", "/flash/");
         addLink("Browser Information", "/fun/browser-info/");
         addLink("Run JS on the web", "/fun/run-js-on-web");
 		addLink("Info", "/info/");
