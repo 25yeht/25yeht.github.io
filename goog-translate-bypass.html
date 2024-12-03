@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Hello</title>
+</head>
+<body>
+  <h1>This form</h1>
+  <form>
+    <input type="text" id="my-text-input" placeholder="Enter text here">
+  </form>
+
+  <script>
+    const textInput = document.getElementById("my-text-input");
+
+    textInput.addEventListener("click", function(e) {
+      e.stopPropagation();
+    });
+  </script>
+</body>
+</html>
